@@ -16,26 +16,22 @@
   <meta name="author" content="Brianyjh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="2020年的时候，我曾经安装过anaconda3，但是电脑最近中了次毒，很多东西都损坏了，呜呜呜于是重新安装了anaconda3，安装完后还需要设置环境变量： 12345E:\AnacondaE:\Anaconda\Scripts                                E:\Anaconda\Library\mingw-w64\binE:\Anaconda\Library\">
+    <meta name="description" content="今日的工作： 完成R语言部分的对接 使用R包’rsubread’将对比对后的reads数据比对到具体基因上 完成差异表达量的计算，构建矩阵（perl）  遇到的问题还是共享包的问题昨天在准备使用samtools的时候，遇到了共享库未成功安装&#x2F;检索连接的问题，今天准备用R的时候也还是遇到了——libreadline这个共享库未成功检索到的难题。我按照昨天的教程重新安装了’libreadli">
 <meta property="og:type" content="article">
-<meta property="og:title" content="brianyjh的搞机日常01">
-<meta property="og:url" content="http://example.com/2022/10/04/brianyjh%E7%9A%84%E6%90%9E%E6%9C%BA%E6%97%A5%E5%B8%B801/index.html">
+<meta property="og:title" content="linux学习笔记02">
+<meta property="og:url" content="http://example.com/2022/07/26/Linux%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B002/index.html">
 <meta property="og:site_name" content="Brianyjh的私人小站">
-<meta property="og:description" content="2020年的时候，我曾经安装过anaconda3，但是电脑最近中了次毒，很多东西都损坏了，呜呜呜于是重新安装了anaconda3，安装完后还需要设置环境变量： 12345E:\AnacondaE:\Anaconda\Scripts                                E:\Anaconda\Library\mingw-w64\binE:\Anaconda\Library\">
+<meta property="og:description" content="今日的工作： 完成R语言部分的对接 使用R包’rsubread’将对比对后的reads数据比对到具体基因上 完成差异表达量的计算，构建矩阵（perl）  遇到的问题还是共享包的问题昨天在准备使用samtools的时候，遇到了共享库未成功安装&#x2F;检索连接的问题，今天准备用R的时候也还是遇到了——libreadline这个共享库未成功检索到的难题。我按照昨天的教程重新安装了’libreadli">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/93ea53572bb34235ada1a622f107ce1a.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/4e0ce180b1e847519e6f2d23e3916a1e.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/723bef525078452dbaeb8c5e4aeead3d.png">
-<meta property="article:published_time" content="2022-10-04T05:48:40.000Z">
-<meta property="article:modified_time" content="2022-10-04T05:53:21.973Z">
+<meta property="article:published_time" content="2022-07-26T05:48:40.000Z">
+<meta property="article:modified_time" content="2022-10-04T11:19:18.561Z">
 <meta property="article:author" content="Brianyjh">
-<meta property="article:tag" content="anaconda">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/93ea53572bb34235ada1a622f107ce1a.png">
   
   
   
-  <title>brianyjh的搞机日常01 - Brianyjh的私人小站</title>
+  <title>linux学习笔记02 - Brianyjh的私人小站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="brianyjh的搞机日常01"></span>
+            <span id="subtitle" data-typed-text="linux学习笔记02"></span>
           
         </div>
 
@@ -211,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-04 13:48" pubdate>
-          2022年10月4日 下午
+        <time datetime="2022-07-26 13:48" pubdate>
+          2022年7月26日 下午
         </time>
       </span>
     
@@ -223,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          524 字
+          631 字
         
       </span>
     
@@ -234,7 +230,7 @@
         
         
         
-          5 分钟
+          6 分钟
         
       </span>
     
@@ -272,19 +268,20 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">brianyjh的搞机日常01</h1>
+            <h1 style="display: none">linux学习笔记02</h1>
             
             
               <div class="markdown-body">
                 
-                <p>2020年的时候，我曾经安装过anaconda3，但是电脑最近中了次毒，很多东西都损坏了，呜呜呜<br>于是重新安装了anaconda3，<br>安装完后还需要设置环境变量：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">E:\Anaconda<br>E:\Anaconda\Scripts                                <br>E:\Anaconda\Library\mingw-w64\bin<br>E:\Anaconda\Library\usr\bin<br>E:\Anaconda\Library\bin                       <br></code></pre></td></tr></table></figure>
-<p>然后在cmd里输入python验证环境变量是否设置成功<br>结果————————————————————————————————————————<br>弹出了应用商店？！？！？！？！？！？！</p>
-<p><img src="https://img-blog.csdnimg.cn/93ea53572bb34235ada1a622f107ce1a.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p>原因是环境变量里的应用商店设置得太靠前。。。。。。。。。。。。<br>把应用商店的环境变量移动下移即可（放在anaconda的环境变量后面）<br><img src="https://img-blog.csdnimg.cn/4e0ce180b1e847519e6f2d23e3916a1e.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p>然后我打不开anaconda-navigator （。。。。。。）<br>找教程：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">conda <span class="hljs-keyword">update</span> anaconda-navigator<br>anaconda-navigator <span class="hljs-comment">--reset</span><br>conda <span class="hljs-keyword">update</span> anaconda-client<br>conda <span class="hljs-keyword">update</span> -f anaconda-client<br></code></pre></td></tr></table></figure>
-<p>经过这么一顿操作，总算是把navigator打开了<br><img src="https://img-blog.csdnimg.cn/723bef525078452dbaeb8c5e4aeead3d.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+                <h1 id="今日的工作："><a href="#今日的工作：" class="headerlink" title="今日的工作："></a>今日的工作：</h1><ul>
+<li>完成R语言部分的对接</li>
+<li>使用R包’rsubread’将对比对后的reads数据比对到具体基因上</li>
+<li>完成差异表达量的计算，构建矩阵（perl）</li>
+</ul>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><h2 id="还是共享包的问题"><a href="#还是共享包的问题" class="headerlink" title="还是共享包的问题"></a>还是共享包的问题</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45536936/article/details/125998154?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22125998154%22,%22source%22:%22weixin_45536936%22%7D&ctrtid=FEeeX">昨天</a>在准备使用<code>samtools</code>的时候，遇到了共享库未成功安装&#x2F;检索连接的问题，今天准备用R的时候也还是遇到了——<code>libreadline</code>这个共享库未成功检索到的难题。<br>我按照昨天的教程重新安装了’libreadline’，结果问题并没有解决，于是想到可能是我安装的是更新的版本，需要像昨天一样做一个连接。<br>但是我翻遍了<code>lib</code>或者<code>lib*</code>都没有找到<code>libreadline</code>的目录。<br>于是只能用’whereis’或者’which’，一开始用的是<code>which</code>发现它能搜的范围其实很小，所以没搜到，最后用<code>whereis</code>搜到，于是切到了<code>libreadline</code>目录，进行了连接。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">whereis libreadline<br>/usr/lib/x86_64-linux-gnu/libreadline.so<br><span class="hljs-built_in">cd</span> /usr/lib/x86_64-linux-gnu/libreadline.so<br>sudo <span class="hljs-built_in">ln</span> -s libreadline.so.7.0 libreadline.so.6<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="R包的安装："><a href="#R包的安装：" class="headerlink" title="R包的安装："></a>R包的安装：</h2><p>R包的安装有两种，一个是CRAN，另一个是Bioconductor<br>CRAN —	&#96;install.packages(‘ggplot’)<br>Bioconductor— BiocManager::install(‘edgeR’)</p>
 
                 
               </div>
@@ -297,7 +294,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/anaconda/">#anaconda</a>
+        <a href="/tags/linux/">#linux</a>
       
     </div>
   
@@ -309,8 +306,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>brianyjh的搞机日常01</div>
-      <div>http://example.com/2022/10/04/brianyjh的搞机日常01/</div>
+      <div>linux学习笔记02</div>
+      <div>http://example.com/2022/07/26/Linux学习日记02/</div>
     </div>
     <div class="license-meta">
       
@@ -322,7 +319,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月4日</div>
+          <div>2022年7月26日</div>
         </div>
       
       
@@ -354,12 +351,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/07/26/Linux%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B001/" title="Linux学习笔记01">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux学习笔记01</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/04/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/07/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/" title="机器学习日记02">
+                        <span class="hidden-mobile">机器学习日记02</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
