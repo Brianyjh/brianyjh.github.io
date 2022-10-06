@@ -595,7 +595,18 @@
 
 
 
+<!-- Live2DCubismCore script -->
+<script src="https://cdn.jsdelivr.net/gh/wangstong/live2dm3/live2d/js/live2dcubismcore.js"></script>
+<!-- Build script -->
+<script src="https://cdn.jsdelivr.net/gh/wangstong/live2dm3/live2d/js/bundle.js"></script>
+<canvas id="live2d" width="200" height="200" class="live2d" style="position: fixed; opacity: 1; left: 3px; bottom: -5px; z-index: 99999; pointer-events: none;"></canvas>
 
+<script type="text/javascript">
+var resourcesPath = 'https://cdn.jsdelivr.net/gh/YZ-HL/LSS_Model@main/';
+var backImageName = '';
+var modelDir = ['LSS'];
+initDefine(resourcesPath, backImageName, modelDir);
+</script>
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
