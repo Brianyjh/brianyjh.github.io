@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://example.com/images/2022-10-22-%E9%87%8D%E6%96%B0%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B/image-20221022195011174.png">
 <meta property="og:image" content="http://example.com/images/2022-10-22-%E9%87%8D%E6%96%B0%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B/image-20221022195027257.png">
 <meta property="article:published_time" content="2022-10-22T04:48:40.000Z">
-<meta property="article:modified_time" content="2022-10-22T11:55:09.316Z">
+<meta property="article:modified_time" content="2022-10-23T06:51:54.213Z">
 <meta property="article:author" content="Brianyjh">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.3k 字
+          7.3k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          53 分钟
+          62 分钟
         
       </span>
     
@@ -282,7 +282,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近重新捡起《<em>机器学习实战：基于Scikit-Learn、Keras和TensorFlow</em>》这本书，同时在整理西瓜书，以及白板推导的相关笔记，准备好好学习本科期间最想学习的机器学习，这篇文章按照原书的代码进行，一步步介绍机器学习的一般步骤。</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近重新捡起《<em>机器学习实战：基于Scikit-Learn、Keras和TensorFlow</em>》这本书，同时在整理西瓜书，以及白板推导的相关笔记，准备好好学习本科期间最想学习的机器学习，这篇文章按照原书的代码进行，一步步介绍机器学习的一般步骤。</p>
 <p>本文，你即将掌握的知识：</p>
 <ol>
 <li>机器学习处理实际数据将会采用的方法</li>
@@ -372,7 +372,25 @@
 <p>随机搜索：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> RandomizedSearchCV<br><span class="hljs-keyword">from</span> scipy.stats <span class="hljs-keyword">import</span> randint<br><br>param_distribs = &#123;<br>    <span class="hljs-string">&#x27;n_estimators&#x27;</span>: randint(low=<span class="hljs-number">1</span>,high=<span class="hljs-number">200</span>),<br>    <span class="hljs-string">&quot;max_features&quot;</span>: randint(low=<span class="hljs-number">1</span>,high=<span class="hljs-number">8</span>),<br>&#125;<br>forest_reg = RandomForestRegressor(random_state=<span class="hljs-number">42</span>)<br>rnd_search = RandomizedSearchCV(forest_reg,param_distributions=param_distribs,<br>                               n_iter=<span class="hljs-number">10</span>,cv=<span class="hljs-number">5</span>,scoring=<span class="hljs-string">&quot;neg_mean_squared_error&quot;</span>,random_state=<span class="hljs-number">42</span>)<br>rnd_search.fit(housing_prepared, housing_labels)<br></code></pre></td></tr></table></figure>
 
-
+<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><h2 id="关于对分类型变量的处理"><a href="#关于对分类型变量的处理" class="headerlink" title="关于对分类型变量的处理"></a>关于对分类型变量的处理</h2><h3 id="独热编码-1"><a href="#独热编码-1" class="headerlink" title="独热编码"></a>独热编码</h3><p>对于存在N种类别的分类型数据，使用N位状态寄存器来对N个类型进行编码，每个状态都有它独立的寄存器位，并且在任意时候，其中只有一位有效。即，只有一位是1，其余都是零值。独热编码 是利用0和1表示一些参数，使用N位状态寄存器来对N个状态进行编码。</p>
+<p>例如：</p>
+<blockquote>
+<p>特征：[“A”，”B”，”C”]（N&#x3D;3，三维数据）：<br>A &#x3D;&gt; 100<br>B &#x3D;&gt; 010<br>C &#x3D;&gt; 001</p>
+</blockquote>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>为什么要这么处理？因为在机器学习的很多算法中，都不能直接处理这种分类型数据，而算法对于特征之间距离的计算或相似度的计算存在一定的要求，而相似度的计算基于欧式空间进行，对变量进行独热编码处理，可以将原来不能处理的分类型数据扩展到欧式空间进行计算</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>但是问题在于假如分类型的变量变得非常多时，会使得独热编码生成的变量变得非常多</p>
+<h3 id="与哑变量处理的关系-lt-span-class-x3D-”hint–top-hint–error-hint–medium-hint–rounded-hint–bounce”-aria-label-x3D-”哑变量-Dummy-Variable-与独热编码-one-hot-Encoding-归纳"><a href="#与哑变量处理的关系-lt-span-class-x3D-”hint–top-hint–error-hint–medium-hint–rounded-hint–bounce”-aria-label-x3D-”哑变量-Dummy-Variable-与独热编码-one-hot-Encoding-归纳" class="headerlink" title="与哑变量处理的关系&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label&#x3D;”哑变量(Dummy Variable)与独热编码(one-hot Encoding)归纳"></a>与哑变量处理的关系<sup id="fnref:1"><a href="#fn:1" rel="footnote">&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label&#x3D;”<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41933542/article/details/106711111">哑变量(Dummy Variable)与独热编码(one-hot Encoding)归纳</a></h3><p>“&gt;[1]</span></a></sup></p>
+<p>哑变量处理与独热编码的原理差不多，区别在于：</p>
+<blockquote>
+<p>哑变量处理：具有k-1个二进制状态，基准类别<strong>将被忽略</strong>,若基准类别选择不合理，<strong>仍存在共线性</strong>，因此建议众数的类别为基准类别。</p>
+<p>独热编码：具有k个特征二进制特征</p>
+</blockquote>
+<h3 id="用法辨析"><a href="#用法辨析" class="headerlink" title="用法辨析"></a>用法辨析</h3><blockquote>
+<p>对于<strong>定类变量</strong><br>对数值大小较敏感的模型，如LR SVM<br>a 哑变量的截距是基准类别的值，哑变量的回归系数表示的是某类别和基准类别之间的平均差异；<br>b 若线性模型有截距项，用哑变量，因为多余的自由度可以被统摄到截距项intercept里去；<br>c 若线性模型有截距项，且使用正则化，用独热编码，因为正则化会约束系数，使各变量地位相等，从而处理多余特征；<br>d 无截距项，使用独热编码<br>e <strong>树模型不建议使用二进制类型的编码</strong>，因为会加深树的深度，或者减小节点分裂增益</p>
+<p>对于<strong>定序变量</strong><br>既分类又排序，自定义的数字顺序可以不破坏原有逻辑，并与这个逻辑相对应。对数值大小不敏感的模型（如树模型）不建议使用one-hotencoding</p>
+<p><strong>选择建议</strong>：最好是选择正则化 + one-hot编码；哑变量编码也可以使用，不过最好选择前者。对于树模型，不推荐使用定类编码，因为样本切分不均衡时，增益效果甚微(如较小的那个拆分样本集，它占总样本的比例太小。无论增益多大，乘以该比例之后几乎可以忽略)；</p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41933542/article/details/106711111">哑变量(Dummy Variable)与独热编码(one-hot Encoding)归纳</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
                 
               </div>
             
