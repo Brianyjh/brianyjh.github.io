@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://example.com/images/2022-10-22-%E9%87%8D%E6%96%B0%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B/image-20221022195011174.png">
 <meta property="og:image" content="http://example.com/images/2022-10-22-%E9%87%8D%E6%96%B0%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B/image-20221022195027257.png">
 <meta property="article:published_time" content="2022-10-22T04:48:40.000Z">
-<meta property="article:modified_time" content="2022-10-23T06:51:54.213Z">
+<meta property="article:modified_time" content="2022-10-23T06:55:53.901Z">
 <meta property="article:author" content="Brianyjh">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.3k 字
+          7.2k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          62 分钟
+          61 分钟
         
       </span>
     
@@ -379,8 +379,8 @@
 </blockquote>
 <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>为什么要这么处理？因为在机器学习的很多算法中，都不能直接处理这种分类型数据，而算法对于特征之间距离的计算或相似度的计算存在一定的要求，而相似度的计算基于欧式空间进行，对变量进行独热编码处理，可以将原来不能处理的分类型数据扩展到欧式空间进行计算</p>
 <h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>但是问题在于假如分类型的变量变得非常多时，会使得独热编码生成的变量变得非常多</p>
-<h3 id="与哑变量处理的关系-lt-span-class-x3D-”hint–top-hint–error-hint–medium-hint–rounded-hint–bounce”-aria-label-x3D-”哑变量-Dummy-Variable-与独热编码-one-hot-Encoding-归纳"><a href="#与哑变量处理的关系-lt-span-class-x3D-”hint–top-hint–error-hint–medium-hint–rounded-hint–bounce”-aria-label-x3D-”哑变量-Dummy-Variable-与独热编码-one-hot-Encoding-归纳" class="headerlink" title="与哑变量处理的关系&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label&#x3D;”哑变量(Dummy Variable)与独热编码(one-hot Encoding)归纳"></a>与哑变量处理的关系<sup id="fnref:1"><a href="#fn:1" rel="footnote">&lt;span class&#x3D;”hint–top hint–error hint–medium hint–rounded hint–bounce” aria-label&#x3D;”<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41933542/article/details/106711111">哑变量(Dummy Variable)与独热编码(one-hot Encoding)归纳</a></h3><p>“&gt;[1]</span></a></sup></p>
-<p>哑变量处理与独热编码的原理差不多，区别在于：</p>
+<h3 id="与哑变量处理的关系"><a href="#与哑变量处理的关系" class="headerlink" title="与哑变量处理的关系"></a>与哑变量处理的关系</h3><p>哑变量处理与独热编码的原理差不多，区别在于<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[哑变量(Dummy Variable)与独热编码(one-hot Encoding)归纳](https://blog.csdn.net/qq_41933542/article/details/106711111)
+">[1]</span></a></sup>：</p>
 <blockquote>
 <p>哑变量处理：具有k-1个二进制状态，基准类别<strong>将被忽略</strong>,若基准类别选择不合理，<strong>仍存在共线性</strong>，因此建议众数的类别为基准类别。</p>
 <p>独热编码：具有k个特征二进制特征</p>
