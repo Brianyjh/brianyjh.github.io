@@ -23,11 +23,14 @@
 <meta property="og:site_name" content="Brianyjh的私人小站">
 <meta property="og:description" content="前言这周我们参考的是《机器学习实战：基于Scikit-Learn、Keras和TensorFlow》第三章的内容，进行对于分类问题的探讨，本文你将学会的知识：  机器学习中（其他）性能度量的计算方法 多分类策略 误差分析 多标签与多输出分类  mnist数据集(二分类)我们本次训练的数据是著名的mnist数据集，从mnist.keys()我们可以看到其包含的内容 1234from sklearn.">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/20221029/precision_recall_vs_threshold_plot-16670469194531.png">
+<meta property="og:image" content="http://example.com/images/20221029/precision_vs_recall_plot.png">
 <meta property="article:published_time" content="2022-10-29T07:48:40.000Z">
-<meta property="article:modified_time" content="2022-10-29T08:35:08.299Z">
+<meta property="article:modified_time" content="2022-10-29T14:45:18.081Z">
 <meta property="article:author" content="Brianyjh">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/20221029/precision_recall_vs_threshold_plot-16670469194531.png">
   
   
   
@@ -219,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          5.6k 字
         
       </span>
     
@@ -230,7 +233,7 @@
         
         
         
-          32 分钟
+          47 分钟
         
       </span>
     
@@ -323,17 +326,17 @@
 <p>该矩阵可用于易于理解的二类分类问题，但通过向混淆矩阵添加更多行和列，可轻松应用于具有3个或更多类值的问题。</p>
 <p>从混淆矩阵当中，可以得到更高级的分类指标：Accuracy（正确率），Precision（精度或者准确率），Recall（召回率），Specificity（特异性），Sensitivity（灵敏度）。</p>
 <p>正确率Accuracy：</p>
-<p>$$\text{准确率}&#x3D;\frac{TP+FP}{TP+FP+FP+TN}$$</p>
+<p>$$<br>\text{准确率}&#x3D;\frac{TP+FP}{TP+FP+FP+TN}<br>$$</p>
 <p>精度或查准率Precision：</p>
-<p>$$\text{精度}&#x3D;\frac{TP}{TP+FP}$$</p>
+<p>$$<br>\text{精度}&#x3D;\frac{TP}{TP+FP}<br>$$</p>
 <p>召回率Recall：</p>
-<p>$$\text{召回率}&#x3D;\frac{TP}{TP+FN}$$</p>
+<p>$$<br>\text{召回率}&#x3D;\frac{TP}{TP+FN}<br>$$</p>
 <p>将Recall和Precision结合，可以组成F1度量，用于判断查准查全的性能</p>
 <p>F1度量是Recall和Precision的调和平均值:</p>
 <p>当Recall和Precision同时高时，F1才会高</p>
-<p>$$F_1&#x3D;\frac{2}{\frac{1}{\text{查准率}}+\frac{1}{\text{召回率}}}&#x3D;2\times \frac{\text{查准率}\times \text{召回率}}{\text{查准率}+\text{召回率}}&#x3D;\frac{2\times TP}{\text{范例总数}+TP-TN}$$</p>
+<p>$$<br>F_1&#x3D;\frac{2}{\frac{1}{\text{查准率}}+\frac{1}{\text{召回率}}}&#x3D;2\times \frac{\text{查准率}\times \text{召回率}}{\text{查准率}+\text{召回率}}&#x3D;\frac{2\times TP}{\text{范例总数}+TP-TN}<br>$$</p>
 <p>Fβ是是Recall和Precision的加权调和平均值：</p>
-<p>$$F_{\beta}&#x3D;\frac{\left( 1+\beta ^2 \right) \times \text{查准率}\times \text{召回率}}{\left( \beta ^2\times \text{查准率} \right) +\text{召回率}}$$</p>
+<p>$$<br>F_{\beta}&#x3D;\frac{\left( 1+\beta ^2 \right) \times \text{查准率}\times \text{召回率}}{\left( \beta ^2\times \text{查准率} \right) +\text{召回率}}<br>$$</p>
 <p>$\beta$ 反映查全率相对于查准率的重要性：<br>$\beta&#x3D;1$退化为标准的F1,$\beta&gt;1$查全更重要，$\beta&lt;1$查准率更重要</p>
 <p>对于不同的训练背景，对查全率与查准率有不同的要求，例如推荐系统认为查准率更重要，重要物品信息检索系统认为查全率更重要。</p>
 <p>我们构建混淆矩阵：</p>
@@ -348,6 +351,22 @@
 <p>F1度量：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span>  sklearn.metrics <span class="hljs-keyword">import</span> f1_score<br>f1_score(y_train_5,y_train_pred)<br></code></pre></td></tr></table></figure>
 
+<p>从上面几个指标的表现来看，模型的训练结果并不是特别好，只有65.12%的数字5被检测出来。</p>
+<p>我们还可以通过观察通过改变阈值来改变查准率和查全率，并观察整个变化过程：</p>
+<h3 id="查准率-x2F-召回率的权衡"><a href="#查准率-x2F-召回率的权衡" class="headerlink" title="查准率&#x2F;召回率的权衡"></a>查准率&#x2F;召回率的权衡</h3><p>SGDClassifier模型会对每个实例，基于决策函数计算出一个值，如果该值大于阈值，将实例判断为正类，否则判断为负类，改变阈值将会影响正负类各自的个数，提高阈值可能会提高精度，降低召回率。</p>
+<p>利用<code>decision_function</code>方法，能够得到决策分数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> cross_val_predict<br>y_scores = cross_val_predict(sgd_clf,X_train,y_train_5,cv=<span class="hljs-number">3</span>,method=<span class="hljs-string">&#x27;decision_function&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>使用<code>precision_recall_curve</code>根据上面求出的<strong>决策分数</strong>，得出计算不同概率阈值的查准率&#x2F;召回率对，可以画出来：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_precision_recall_vs_threshold</span>(<span class="hljs-params">precisions, recalls, thresholds</span>):<br>    plt.plot(thresholds,precisions[:-<span class="hljs-number">1</span>],<span class="hljs-string">&#x27;b--&#x27;</span>,label=<span class="hljs-string">&quot;Precisions&quot;</span>,linewidth=<span class="hljs-number">2</span>)<br>    plt.plot(thresholds,recalls[:-<span class="hljs-number">1</span>], <span class="hljs-string">&#x27;g-&#x27;</span>,label=<span class="hljs-string">&#x27;Recall&#x27;</span>,linewidth=<span class="hljs-number">2</span>)<br>    plt.legend(loc=<span class="hljs-string">&#x27;center right&#x27;</span>, fontsize=<span class="hljs-number">16</span>)<br>    plt.xlabel(<span class="hljs-string">&#x27;Threshold&#x27;</span>,fontsize=<span class="hljs-number">16</span>)<br>    plt.grid(<span class="hljs-literal">True</span>)<br>    plt.axis([-<span class="hljs-number">50000</span>,<span class="hljs-number">50000</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>recall_90_precision = recalls[np.argmax(precisions &gt;=<span class="hljs-number">0.90</span>)]<br>threshold_90_precision = thresholds[np.argmax(precisions&gt;=<span class="hljs-number">0.90</span>)]<br><br>plt.figure(figsize=(<span class="hljs-number">8</span>,<span class="hljs-number">4</span>))<br>plot_precision_recall_vs_threshold(precisions, recalls, thresholds)<br>plt.plot([threshold_90_precision,threshold_90_precision],[<span class="hljs-number">0.</span>,<span class="hljs-number">0.9</span>],<span class="hljs-string">&#x27;r:&#x27;</span>)<br>plt.plot([-<span class="hljs-number">50000</span>,threshold_90_precision],[<span class="hljs-number">0.9</span>,<span class="hljs-number">0.9</span>],<span class="hljs-string">&#x27;r:&#x27;</span>)<br>plt.plot([-<span class="hljs-number">50000</span>,threshold_90_precision],[recall_90_precision,recall_90_precision],<span class="hljs-string">&#x27;r:&#x27;</span>)<br>plt.plot([threshold_90_precision],[<span class="hljs-number">0.9</span>],<span class="hljs-string">&#x27;ro&#x27;</span>)<br>plt.plot([threshold_90_precision],[recall_90_precision],<span class="hljs-string">&#x27;ro&#x27;</span>)<br>save_fig(<span class="hljs-string">&#x27;precision_recall_vs_threshold_plot&#x27;</span>)<br>plt.show()![precision_recall_vs_threshold_plot](E:\blog\source\images\<span class="hljs-number">20221029</span>\precision_recall_vs_threshold_plot.png)<br></code></pre></td></tr></table></figure>
+
+<img src="/images/20221029/precision_recall_vs_threshold_plot-16670469194531.png" srcset="/img/loading.gif" lazyload alt="precision_recall_vs_threshold_plot" style="zoom:80%;" />
+
+<p>通过上面的图我们可以看出随着阈值Threshold的变化，查准率和召回率的变化，在图中，我们还可以看到查准率随着阈值提高会发生波动，例如，假设阈值提高一点点之后，并没有把非5法数字除去，反而去除了数字5的例子，会造成查准率的降低。</p>
+<p>我们还可以画图查看查准率和查全率的关系：</p>
+<img src="/images/20221029/precision_vs_recall_plot.png" srcset="/img/loading.gif" lazyload alt="precision_vs_recall_plot" style="zoom:80%;" />
+
+<h3 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h3><p>ROC曲线，即受试者工作特征曲线，与查准率&#x2F;召回率曲线非常相似</p>
 
                 
               </div>
