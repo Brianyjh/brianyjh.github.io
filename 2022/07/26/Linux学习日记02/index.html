@@ -16,12 +16,12 @@
   <meta name="author" content="Brianyjh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="今日的工作： 完成R语言部分的对接 使用R包’rsubread’将对比对后的reads数据比对到具体基因上 完成差异表达量的计算，构建矩阵（perl）  遇到的问题还是共享包的问题昨天在准备使用samtools的时候，遇到了共享库未成功安装&#x2F;检索连接的问题，今天准备用R的时候也还是遇到了——libreadline这个共享库未成功检索到的难题。我按照昨天的教程重新安装了’libreadli">
+    <meta name="description" content="今日的工作：  完成R语言部分的对接 使用R包&#39;rsubread&#39;将对比对后的reads数据比对到具体基因上 完成差异表达量的计算，构建矩阵（perl）  遇到的问题 还是共享包的问题 昨天在准备使用samtools的时候，遇到了共享库未成功安装&#x2F;检索连接的问题，今天准备用R的时候也还是遇到了——libreadline这个共享库未成功检索到的难题。 我按照昨天的教程重新安装了&#39;l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux学习笔记02">
 <meta property="og:url" content="http://example.com/2022/07/26/Linux%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B002/index.html">
 <meta property="og:site_name" content="Brianyjh的私人小站">
-<meta property="og:description" content="今日的工作： 完成R语言部分的对接 使用R包’rsubread’将对比对后的reads数据比对到具体基因上 完成差异表达量的计算，构建矩阵（perl）  遇到的问题还是共享包的问题昨天在准备使用samtools的时候，遇到了共享库未成功安装&#x2F;检索连接的问题，今天准备用R的时候也还是遇到了——libreadline这个共享库未成功检索到的难题。我按照昨天的教程重新安装了’libreadli">
+<meta property="og:description" content="今日的工作：  完成R语言部分的对接 使用R包&#39;rsubread&#39;将对比对后的reads数据比对到具体基因上 完成差异表达量的计算，构建矩阵（perl）  遇到的问题 还是共享包的问题 昨天在准备使用samtools的时候，遇到了共享库未成功安装&#x2F;检索连接的问题，今天准备用R的时候也还是遇到了——libreadline这个共享库未成功检索到的难题。 我按照昨天的教程重新安装了&#39;l">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-26T05:48:40.000Z">
 <meta property="article:modified_time" content="2022-10-04T11:19:18.561Z">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          631 字
+          626 字
         
       </span>
     
@@ -277,15 +277,24 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="今日的工作："><a href="#今日的工作：" class="headerlink" title="今日的工作："></a>今日的工作：</h1><ul>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="今日的工作">今日的工作：</h1>
+<ul>
 <li>完成R语言部分的对接</li>
-<li>使用R包’rsubread’将对比对后的reads数据比对到具体基因上</li>
+<li>使用R包'rsubread'将对比对后的reads数据比对到具体基因上</li>
 <li>完成差异表达量的计算，构建矩阵（perl）</li>
 </ul>
-<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><h2 id="还是共享包的问题"><a href="#还是共享包的问题" class="headerlink" title="还是共享包的问题"></a>还是共享包的问题</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45536936/article/details/125998154?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22125998154%22,%22source%22:%22weixin_45536936%22%7D&ctrtid=FEeeX">昨天</a>在准备使用<code>samtools</code>的时候，遇到了共享库未成功安装&#x2F;检索连接的问题，今天准备用R的时候也还是遇到了——<code>libreadline</code>这个共享库未成功检索到的难题。<br>我按照昨天的教程重新安装了’libreadline’，结果问题并没有解决，于是想到可能是我安装的是更新的版本，需要像昨天一样做一个连接。<br>但是我翻遍了<code>lib</code>或者<code>lib*</code>都没有找到<code>libreadline</code>的目录。<br>于是只能用’whereis’或者’which’，一开始用的是<code>which</code>发现它能搜的范围其实很小，所以没搜到，最后用<code>whereis</code>搜到，于是切到了<code>libreadline</code>目录，进行了连接。</p>
+<h1 id="遇到的问题">遇到的问题</h1>
+<h2 id="还是共享包的问题">还是共享包的问题</h2>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45536936/article/details/125998154?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22125998154%22,%22source%22:%22weixin_45536936%22%7D&amp;ctrtid=FEeeX">昨天</a>在准备使用<code>samtools</code>的时候，遇到了共享库未成功安装/检索连接的问题，今天准备用R的时候也还是遇到了——<code>libreadline</code>这个共享库未成功检索到的难题。
+我按照昨天的教程重新安装了'libreadline'，结果问题并没有解决，于是想到可能是我安装的是更新的版本，需要像昨天一样做一个连接。
+但是我翻遍了<code>lib</code>或者<code>lib*</code>都没有找到<code>libreadline</code>的目录。
+于是只能用'whereis'或者'which'，一开始用的是<code>which</code>发现它能搜的范围其实很小，所以没搜到，最后用<code>whereis</code>搜到，于是切到了<code>libreadline</code>目录，进行了连接。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">whereis libreadline<br>/usr/lib/x86_64-linux-gnu/libreadline.so<br><span class="hljs-built_in">cd</span> /usr/lib/x86_64-linux-gnu/libreadline.so<br>sudo <span class="hljs-built_in">ln</span> -s libreadline.so.7.0 libreadline.so.6<br><br></code></pre></td></tr></table></figure>
-
-<h2 id="R包的安装："><a href="#R包的安装：" class="headerlink" title="R包的安装："></a>R包的安装：</h2><p>R包的安装有两种，一个是CRAN，另一个是Bioconductor<br>CRAN —	&#96;install.packages(‘ggplot’)<br>Bioconductor— BiocManager::install(‘edgeR’)</p>
+<h2 id="r包的安装">R包的安装：</h2>
+<p>R包的安装有两种，一个是CRAN，另一个是Bioconductor CRAN ---
+`install.packages('ggplot') Bioconductor---
+BiocManager::install('edgeR')</p>
 
                 
               </div>
@@ -367,9 +376,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/28/Linux%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B003/" title="linux学习笔记03">
+                      <a href="/2022/07/26/Linux%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B001/" title="Linux学习笔记01">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">linux学习笔记03</span>
+                        <span class="hidden-mobile">Linux学习笔记01</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -377,8 +386,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/26/Linux%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B001/" title="Linux学习笔记01">
-                        <span class="hidden-mobile">Linux学习笔记01</span>
+                      <a href="/2021/07/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/" title="机器学习日记02">
+                        <span class="hidden-mobile">机器学习日记02</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -673,21 +682,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 </html>

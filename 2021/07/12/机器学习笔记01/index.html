@@ -16,36 +16,18 @@
   <meta name="author" content="Brianyjh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="01 概念什么是机器学习？T:任务，目的，结果E:训练集，经验值h：假设，方程p：置信区间  一个程序被认为能从经验E中学习,  解决任务T，达到性能度量值P，当且仅当，有了经验E后，经过P评判，程序在处理T时的性能有所提升。我认为经验E就是程序上万次的自我练习的经验而任务，T是下棋。性能度量值P呢，就是它在与一些新的对手比赛时，赢得比赛的概率。  更经典的定义：  一个计算机程序利用经验E来学习">
+    <meta name="description" content="01 概念 什么是机器学习？ T:任务，目的，结果 E:训练集，经验值 h：假设，方程 p：置信区间  一个程序被认为能从经验E中学习, 解决任务T，达到性能度量值P，当且仅当，有了经验E后，经过P评判，程序在处理T时的性能有所提升。 我认为经验E就是程序上万次的自我练习的经验而任务，T是下棋。性能度量值P呢，就是它在与一些新的对手比赛时，赢得比赛的概率。  更经典的定义：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习日记01">
 <meta property="og:url" content="http://example.com/2021/07/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/index.html">
 <meta property="og:site_name" content="Brianyjh的私人小站">
-<meta property="og:description" content="01 概念什么是机器学习？T:任务，目的，结果E:训练集，经验值h：假设，方程p：置信区间  一个程序被认为能从经验E中学习,  解决任务T，达到性能度量值P，当且仅当，有了经验E后，经过P评判，程序在处理T时的性能有所提升。我认为经验E就是程序上万次的自我练习的经验而任务，T是下棋。性能度量值P呢，就是它在与一些新的对手比赛时，赢得比赛的概率。  更经典的定义：  一个计算机程序利用经验E来学习">
+<meta property="og:description" content="01 概念 什么是机器学习？ T:任务，目的，结果 E:训练集，经验值 h：假设，方程 p：置信区间  一个程序被认为能从经验E中学习, 解决任务T，达到性能度量值P，当且仅当，有了经验E后，经过P评判，程序在处理T时的性能有所提升。 我认为经验E就是程序上万次的自我练习的经验而任务，T是下棋。性能度量值P呢，就是它在与一些新的对手比赛时，赢得比赛的概率。  更经典的定义：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712193902372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="c:\Users\brianyang\Desktop\%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9F%BA%E4%BA%8EScikit-Learn%E3%80%81Keras%E5%92%8CTensorFlow%EF%BC%9A%E5%8E%9F%E4%B9%A6%E7%AC%AC2%E7%89%88%E4%B8%AD%E6%96%87%E7%89%88.jpg">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712195749468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712194959448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712200006880.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712200749540.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712200826808.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712202539555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712203143582.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712203656507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712203757584.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712204108527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712204321620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712204846425.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2021071220530574.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712205758183.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210712205848160.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2021-07-12T05:48:40.000Z">
 <meta property="article:modified_time" content="2022-10-14T08:43:56.309Z">
 <meta property="article:author" content="Brianyjh">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210712193902372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70">
   
   
   
@@ -241,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          3.9k 字
         
       </span>
     
@@ -252,7 +234,7 @@
         
         
         
-          32 分钟
+          33 分钟
         
       </span>
     
@@ -295,68 +277,159 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="01-概念"><a href="#01-概念" class="headerlink" title="01 概念"></a>01 概念</h1><p>什么是机器学习？<img src="https://img-blog.csdnimg.cn/20210712193902372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>T:任务，目的，结果<br>E:训练集，经验值<br>h：假设，方程<br>p：置信区间</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="概念">01 概念</h1>
+<p>什么是机器学习？<img
+src="https://img-blog.csdnimg.cn/20210712193902372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /> T:任务，目的，结果 E:训练集，经验值
+h：假设，方程 p：置信区间</p>
 <blockquote>
-<p>一个程序被认为能从经验E中学习,  解决任务T，达到性能度量值P，当且仅当，有了经验E后，经过P评判，程序在处理T时的性能有所提升。<br>我认为经验E就是程序上万次的自我练习的经验而任务，T是下棋。性能度量值P呢，就是它在与一些新的对手比赛时，赢得比赛的概率。</p>
+<p>一个程序被认为能从经验E中学习,
+解决任务T，达到性能度量值P，当且仅当，有了经验E后，经过P评判，程序在处理T时的性能有所提升。
+我认为经验E就是程序上万次的自我练习的经验而任务，T是下棋。性能度量值P呢，就是它在与一些新的对手比赛时，赢得比赛的概率。</p>
 </blockquote>
 <p>更经典的定义：</p>
 <blockquote>
 <p>一个计算机程序利用经验E来学习任务T，性能是P，如果针对任务T的性能P随着经验E不断增长，则称为机器学习。</p>
 <p>汤姆·米切尔（Tom Mitchell），1997</p>
 </blockquote>
-<p><img src="C:\Users\brianyang\Desktop\机器学习实战：基于Scikit-Learn、Keras和TensorFlow：原书第2版中文版.jpg" srcset="/img/loading.gif" lazyload alt="机器学习实战：基于Scikit-Learn、Keras和TensorFlow：原书第2版中文版"></p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<figure>
+<img
+src="C:\Users\brianyang\Desktop\机器学习实战：基于Scikit-Learn、Keras和TensorFlow：原书第2版中文版.jpg" srcset="/img/loading.gif" lazyload
+alt="机器学习实战：基于Scikit-Learn、Keras和TensorFlow：原书第2版中文版" />
+<figcaption
+aria-hidden="true">机器学习实战：基于Scikit-Learn、Keras和TensorFlow：原书第2版中文版</figcaption>
+</figure>
+<h2 id="特点">特点</h2>
+<ul>
 <li>有解决方案（但解决方案需要进行大量人工微调或需要遵循大量规则）的问题：机器学习算法通常可以简化代码，相比传统方法有更好的性能</li>
 <li>传统方法难以解决的复杂问题：最好的机器学习技术也许可以找到解决方案。</li>
 <li>环境有波动：机器学习算法可以适应新数据。</li>
 <li>洞察复杂问题和大量数据。</li>
 </ul>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><em>有监督学习和无监督学习</em><br><strong>有监督学习</strong>:  我们将教计算机如何去完成任务</p>
+<h2 id="基本概念">基本概念</h2>
+<p><em>有监督学习和无监督学习</em> <strong>有监督学习</strong>:
+我们将教计算机如何去完成任务</p>
 <p><strong>无监督学习</strong>中:我们打算让它自己进行学习</p>
 <p>此外你将听到诸如，<strong>强化学习</strong>和<strong>推荐系统</strong>等各种术语。这些都是机器学习算法的一员</p>
-<h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><blockquote>
-<p>监督学习指的就是我们给学习算法一个数据集。这个数据集由“正确答案”组成。在房价的例子中,我们给了一系列房子的数据,我们给定数据集中每个样本的正确价格<br>在预测类的问题中，监督学习的过程是<strong>给予数据集，设置假设，计算预测</strong></p>
+<h2 id="监督学习">监督学习</h2>
+<blockquote>
+<p>监督学习指的就是我们给学习算法一个数据集。这个数据集由“正确答案"组成。在房价的例子中,我们给了一系列房子的数据,我们给定数据集中每个样本的正确价格
+在预测类的问题中，监督学习的过程是<strong>给予数据集，设置假设，计算预测</strong></p>
 </blockquote>
-<h4 id="回归-amp-分类-amp-其他"><a href="#回归-amp-分类-amp-其他" class="headerlink" title="回归&amp;分类&amp;其他"></a>回归&amp;分类&amp;其他</h4><blockquote>
+<h4 id="回归分类其他">回归&amp;分类&amp;其他</h4>
+<blockquote>
 <p>回归这个词的意思是，我们在试着推测出这一系列连续值属性。</p>
 </blockquote>
 <blockquote>
 <p>分类指的是，我们试着推测出离散的输出值：0或1良性或恶性，而事实上在分类问题中，输出可能不止两个值。比如说可能有三种乳腺癌，所以你希望预测离散输出</p>
 </blockquote>
-<p>我们以后会讲 一个算法，叫支持向量机，里面有一个巧妙的数学技巧，能让计算机处理无限多个特征。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>现在来回顾一下，这节课我们介绍了监督学习。其基本思想是，我们数据集中的每个样本都有相应的 “正确答案 ”。 再根据这些样本作出预测 就像房子和肿瘤的例子中做的那样 。我们还介绍了回归问题，即通过回归来推出一个连续的输出，之后我们介绍了分类问题，其目标是推出一组离散的结果。</p>
-<h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><h4 id="两种列举的无监督学习"><a href="#两种列举的无监督学习" class="headerlink" title="两种列举的无监督学习"></a>两种列举的无监督学习</h4><blockquote>
+<p>我们以后会讲
+一个算法，叫支持向量机，里面有一个巧妙的数学技巧，能让计算机处理无限多个特征。</p>
+<h4 id="总结">总结</h4>
+<p>现在来回顾一下，这节课我们介绍了监督学习。其基本思想是，我们数据集中的每个样本都有相应的
+“正确答案 ”。 再根据这些样本作出预测 就像房子和肿瘤的例子中做的那样
+。我们还介绍了回归问题，即通过回归来推出一个连续的输出，之后我们介绍了分类问题，其目标是推出一组离散的结果。</p>
+<h2 id="无监督学习">无监督学习</h2>
+<h4 id="两种列举的无监督学习">两种列举的无监督学习</h4>
+<blockquote>
 <p>无监督学习算法可能会把这些数据分成两个不同的簇。所以叫做聚类算法。事实证明，它能被用在很多地方。</p>
 </blockquote>
 <blockquote>
 <p>鸡尾酒宴会——另外一种方法</p>
 </blockquote>
-<h1 id="02-正题：单变量线性回归"><a href="#02-正题：单变量线性回归" class="headerlink" title="02 正题：单变量线性回归"></a>02 正题：单变量线性回归</h1><blockquote>
+<h1 id="正题单变量线性回归">02 正题：单变量线性回归</h1>
+<blockquote>
 <p>回归 一词指的是，我们根据之前或者已有的数据预测出一个准确的输出值</p>
 </blockquote>
-<h4 id="对一般回归问题的标记"><a href="#对一般回归问题的标记" class="headerlink" title="对一般回归问题的标记"></a>对一般回归问题的标记</h4><p><img src="https://img-blog.csdnimg.cn/20210712195749468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210712194959448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>我将选择最初的使用规则ℎ代表 hypothesis，因而，要解决房价预测问题，我们实际上是要将训练集 “喂 ”给我们的学习算法 进而学习得到一个假设 ℎ，然后将我们要预测的房屋的尺寸作为输入变量输入给 ℎ，预测出该房屋的交易价格作为输出变量输出为结果。</p>
-<p>一种可能的表达方式为：<img src="https://img-blog.csdnimg.cn/20210712200006880.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>​​，因为只含有一个特征 &#x2F;输入变量，因此这样的问题叫作单变量线性回归问题。</p>
-<h4 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h4><p>因为我们设置的h只是一种假设，因此通过假设方程预测的数与真值一定有偏差，将已知的真值与通过假设方程的差异展现出来的方程叫做代价函数</p>
+<h4 id="对一般回归问题的标记">对一般回归问题的标记</h4>
+<p><img
+src="https://img-blog.csdnimg.cn/20210712195749468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /> <img
+src="https://img-blog.csdnimg.cn/20210712194959448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /> 我将选择最初的使用规则ℎ代表
+hypothesis，因而，要解决房价预测问题，我们实际上是要将训练集 “喂
+”给我们的学习算法 进而学习得到一个假设
+ℎ，然后将我们要预测的房屋的尺寸作为输入变量输入给
+ℎ，预测出该房屋的交易价格作为输出变量输出为结果。</p>
+<p>一种可能的表达方式为：<img
+src="https://img-blog.csdnimg.cn/20210712200006880.png" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /> ​​，因为只含有一个特征
+/输入变量，因此这样的问题叫作单变量线性回归问题。 #### 代价函数
+因为我们设置的h只是一种假设，因此通过假设方程预测的数与真值一定有偏差，将已知的真值与通过假设方程的差异展现出来的方程叫做代价函数</p>
 <p>在优化类数模模型中：</p>
 <blockquote>
 <p>一个最佳化问题的目标是将损失函数最小化。</p>
 </blockquote>
-<p>代价函数的常见形式是<strong>最小二乘法</strong><br>模型所预测的值与训练集中实际值之间的差距（下图中蓝线所指）就是 建模误差 modeling error）<br><img src="https://img-blog.csdnimg.cn/20210712200749540.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>我们的目标便是选择出可以使得建模误差的平方和能够最小的模型参数。即使得代价函数最小<img src="https://img-blog.csdnimg.cn/20210712200826808.png" srcset="/img/loading.gif" lazyload alt="代价函数"></p>
-<h4 id="损失函数的图形化表示"><a href="#损失函数的图形化表示" class="headerlink" title="损失函数的图形化表示"></a>损失函数的图形化表示</h4><p>𝐽(𝜃0,𝜃1) 就是代价函数，也称损失函数<br>𝐽(𝜃1) 是二维的函数关系<br>𝐽(𝜃0,𝜃1) 是三维的函数关系</p>
-<p><img src="https://img-blog.csdnimg.cn/20210712202539555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<h4 id="损失函数存在的意义"><a href="#损失函数存在的意义" class="headerlink" title="损失函数存在的意义"></a>损失函数存在的意义</h4><p><img src="https://img-blog.csdnimg.cn/20210712203143582.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>为了使得求得的预测值与真值差距最小化，在损失函数中应当找到函数的极小值</p>
-<p>如何找到极小值，一般有两种方法，一个叫梯度下降，另一个叫normal equation，下面先讲梯度下降</p>
-<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>梯度下降——梯度下降是一个用来求函数最小值的算法，我们将使用梯度下降算法来求出代价函数𝐽(𝜃0,𝜃1) 的最小值。</p>
-<p>梯度下降背后的思想是：开始时我们随机选择一个参数的组合<br>(𝜃0,𝜃1,……,𝜃𝑛)，计算代价函数，然后我们寻找下一个能让代价函数值下降最多的参数组合。我们持续这么做直到到到一个局部最小值（ local minimum），因为我们并没有尝试完所有的参数组合，所以不能确定我们得到的局部最小值是否便是全局最小值（ global minimum），选择不同的初始参数 组合，可能会找到不同的局部最小值。<br><img src="https://img-blog.csdnimg.cn/20210712203656507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>批量梯度下降（<br>batch gradient descent）算法的公式为<br><img src="https://img-blog.csdnimg.cn/20210712203757584.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>其中<br>𝑎是学习率（ learning rate），它决定了我们沿着能让代价函数下降程度最大的方向<br>向下迈出的步子有多大，在批量梯度下降中，我们每一次都同时让所有的参数减去学习速率<br>乘以代价函数的导数。<br><img src="https://img-blog.csdnimg.cn/20210712204108527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> 对于这个问题，求导的目的，基本上可以说取这个红点的切线，就是这样一条红色的直线，刚好与函数相切于这一点，让我们看看这条红色直线的斜率，就是这条刚好与函数曲线相切的这条直线，这条直线的斜率正好是这个三角形的高度除以这个水平长度，现在，这条线有一个正斜率，也就是说它有正导数，因此，我得到的新的 𝜃1 𝜃1更新后等于 𝜃1减去一个正数乘以 𝑎。</p>
-<p>如果𝑎太小了，即我的学习 速率太小，结果就是只能这样像小宝宝一样一点点地挪动，去努力接近最低点，这样就需要很多步才能到达最低点，所以如果 𝑎太小的话，可能会很慢，因为它会一点点挪动，它会需要很多步才能到达全局最低点。</p>
+<p>代价函数的常见形式是<strong>最小二乘法</strong>
+模型所预测的值与训练集中实际值之间的差距（下图中蓝线所指）就是 建模误差
+modeling error） <img
+src="https://img-blog.csdnimg.cn/20210712200749540.png" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" />
+我们的目标便是选择出可以使得建模误差的平方和能够最小的模型参数。即使得代价函数最小<img
+src="https://img-blog.csdnimg.cn/20210712200826808.png" srcset="/img/loading.gif" lazyload
+alt="代价函数" /></p>
+<h4 id="损失函数的图形化表示">损失函数的图形化表示</h4>
+<p>𝐽(𝜃0,𝜃1) 就是代价函数，也称损失函数 𝐽(𝜃1) 是二维的函数关系 𝐽(𝜃0,𝜃1)
+是三维的函数关系</p>
+<p><img
+src="https://img-blog.csdnimg.cn/20210712202539555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /> #### 损失函数存在的意义 <img
+src="https://img-blog.csdnimg.cn/20210712203143582.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" />
+为了使得求得的预测值与真值差距最小化，在损失函数中应当找到函数的极小值</p>
+<p>如何找到极小值，一般有两种方法，一个叫梯度下降，另一个叫normal
+equation，下面先讲梯度下降</p>
+<h2 id="梯度下降">梯度下降</h2>
+<p>梯度下降——梯度下降是一个用来求函数最小值的算法，我们将使用梯度下降算法来求出代价函数𝐽(𝜃0,𝜃1)
+的最小值。</p>
+<p>梯度下降背后的思想是：开始时我们随机选择一个参数的组合
+(𝜃0,𝜃1,......,𝜃𝑛)，计算代价函数，然后我们寻找下一个能让代价函数值下降最多的参数组合。我们持续这么做直到到到一个局部最小值（
+local
+minimum），因为我们并没有尝试完所有的参数组合，所以不能确定我们得到的局部最小值是否便是全局最小值（
+global minimum），选择不同的初始参数 组合，可能会找到不同的局部最小值。
+<img
+src="https://img-blog.csdnimg.cn/20210712203656507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /> 批量梯度下降（ batch gradient
+descent）算法的公式为 <img
+src="https://img-blog.csdnimg.cn/20210712203757584.png" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /> 其中 𝑎是学习率（ learning
+rate），它决定了我们沿着能让代价函数下降程度最大的方向
+向下迈出的步子有多大，在批量梯度下降中，我们每一次都同时让所有的参数减去学习速率
+乘以代价函数的导数。 <img
+src="https://img-blog.csdnimg.cn/20210712204108527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" />
+对于这个问题，求导的目的，基本上可以说取这个红点的切线，就是这样一条红色的直线，刚好与函数相切于这一点，让我们看看这条红色直线的斜率，就是这条刚好与函数曲线相切的这条直线，这条直线的斜率正好是这个三角形的高度除以这个水平长度，现在，这条线有一个正斜率，也就是说它有正导数，因此，我得到的新的
+𝜃1 𝜃1更新后等于 𝜃1减去一个正数乘以 𝑎。</p>
+<p>如果𝑎太小了，即我的学习
+速率太小，结果就是只能这样像小宝宝一样一点点地挪动，去努力接近最低点，这样就需要很多步才能到达最低点，所以如果
+𝑎太小的话，可能会很慢，因为它会一点点挪动，它会需要很多步才能到达全局最低点。</p>
 <p>如果𝑎太大，那么梯度下降法可能会越过最低点，甚至可能无法收敛，下一次迭代又移动了一大步，越过一次，又越过一次，一次次越过最低点，直到你发现实际上离最低点越来yuan</p>
-<h5 id="梯度下降python实现，BGD"><a href="#梯度下降python实现，BGD" class="headerlink" title="梯度下降python实现，BGD"></a>梯度下降python实现，BGD</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># _*_ coding: utf-8 _*_</span><br><span class="hljs-comment"># 作者: yhao</span><br><span class="hljs-comment"># 博客: http://blog.csdn.net/yhao2014</span><br><span class="hljs-comment"># 邮箱: yanhao07@sina.com</span><br> <br><span class="hljs-comment"># 训练集</span><br><span class="hljs-comment"># 每个样本点有3个分量 (x0,x1,x2)</span><br>x = [(<span class="hljs-number">1</span>, <span class="hljs-number">0.</span>, <span class="hljs-number">3</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">1.</span>, <span class="hljs-number">3</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">2.</span>, <span class="hljs-number">3</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">3.</span>, <span class="hljs-number">2</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">4.</span>, <span class="hljs-number">4</span>)]<br><span class="hljs-comment"># y[i] 样本点对应的输出</span><br>y = [<span class="hljs-number">95.364</span>, <span class="hljs-number">97.217205</span>, <span class="hljs-number">75.195834</span>, <span class="hljs-number">60.105519</span>, <span class="hljs-number">49.342380</span>]<br> <br><span class="hljs-comment"># 迭代阀值，当两次迭代损失函数之差小于该阀值时停止迭代</span><br>epsilon = <span class="hljs-number">0.0001</span><br> <br><span class="hljs-comment"># 学习率</span><br>alpha = <span class="hljs-number">0.01</span><br>diff = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]<br>max_itor = <span class="hljs-number">1000</span><br>error1 = <span class="hljs-number">0</span><br>error0 = <span class="hljs-number">0</span><br>cnt = <span class="hljs-number">0</span><br>m = <span class="hljs-built_in">len</span>(x)<br> <br><span class="hljs-comment"># 初始化参数</span><br>theta0 = <span class="hljs-number">0</span><br>theta1 = <span class="hljs-number">0</span><br>theta2 = <span class="hljs-number">0</span><br> <br> <br> <br> <br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    cnt += <span class="hljs-number">1</span><br> <br>    <span class="hljs-comment"># 参数迭代计算</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>        <span class="hljs-comment"># 拟合函数为 y = theta0 * x[0] + theta1 * x[1] +theta2 * x[2]</span><br>        <span class="hljs-comment"># 计算残差</span><br>        diff[<span class="hljs-number">0</span>] = (theta0 + theta1 * x[i][<span class="hljs-number">1</span>] + theta2 * x[i][<span class="hljs-number">2</span>]) - y[i]<br> <br>        <span class="hljs-comment"># 梯度 = diff[0] * x[i][j]</span><br>        theta0 -= alpha * diff[<span class="hljs-number">0</span>] * x[i][<span class="hljs-number">0</span>]<br>        theta1 -= alpha * diff[<span class="hljs-number">0</span>] * x[i][<span class="hljs-number">1</span>]<br>        theta2 -= alpha * diff[<span class="hljs-number">0</span>] * x[i][<span class="hljs-number">2</span>]<br> <br>    <span class="hljs-comment"># 计算损失函数</span><br>    error1 = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> lp <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(x)):<br>        error1 += (y[lp] - (theta0 + theta1 * x[lp][<span class="hljs-number">1</span>] + theta2 * x[lp][<span class="hljs-number">2</span>])) ** <span class="hljs-number">2</span> / <span class="hljs-number">2</span><br> <br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(error1 - error0) &lt; epsilon:<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">else</span>:<br>        error0 = error1<br> <br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;theta0 : %f, theta1 : %f, theta2 : %f, error1 : %f&quot;</span> % (theta0, theta1, theta2, error1))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Done: theta0 : %f, theta1 : %f, theta2 : %f&#x27;</span> % (theta0, theta1, theta2))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;迭代次数: %d&#x27;</span> % cnt)<br><span class="hljs-comment">#为什么相邻两个残差相差在0.0001说明我们能够找到全局最优解呢？因为根据梯度下降的原理，每一次迭代过程我们得到的m个theta必然越来越接近最优解的，相差0.0001说明m个theta无法继续下降</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="梯度下降的表现形式"><a href="#梯度下降的表现形式" class="headerlink" title="梯度下降的表现形式"></a>梯度下降的表现形式</h4><p><img src="https://img-blog.csdnimg.cn/20210712204321620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在梯度下降算法中，这是正确实现同时更新的方法。我不打算解释为什么你需要同时更新，同时更新是梯度下降中的一种常用方法。我们之后会讲到，同步更新是更自然的实现方法。当人们谈到梯度下降时，他们的意思就是同步更新。 </p>
-<h4 id="梯度下降的进一步理解"><a href="#梯度下降的进一步理解" class="headerlink" title="梯度下降的进一步理解"></a>梯度下降的进一步理解</h4><p>梯度下降算法如下：<br><img src="https://img-blog.csdnimg.cn/20210712204846425.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>描述：对<br>𝜃赋值，使得 𝐽(𝜃)按梯度下降最快方向进行，一直迭代下去，最终得到局部最小值。其中 𝑎是学习率（ learning rate），它决定了我们沿着能让代价函数下降程度最大的方<br>向向下迈出的步子有多大</p>
-<p>求导能够把函数化简<br><img src="https://img-blog.csdnimg.cn/2021071220530574.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<h4 id="线性回归与梯度下降"><a href="#线性回归与梯度下降" class="headerlink" title="线性回归与梯度下降"></a>线性回归与梯度下降</h4><p>梯度下降与线性回归算法<br><img src="https://img-blog.csdnimg.cn/20210712205758183.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210712205848160.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p>现在我们已经掌握了梯度下降，我们可以在不同的环境中使用梯度下降法，我们还将在<br>不同的机器学习问题中大量地使用它。所以，祝贺大家成功学会你的第一个机器学习算法。</p>
+<h5 id="梯度下降python实现bgd">梯度下降python实现，BGD</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># _*_ coding: utf-8 _*_</span><br><span class="hljs-comment"># 作者: yhao</span><br><span class="hljs-comment"># 博客: http://blog.csdn.net/yhao2014</span><br><span class="hljs-comment"># 邮箱: yanhao07@sina.com</span><br> <br><span class="hljs-comment"># 训练集</span><br><span class="hljs-comment"># 每个样本点有3个分量 (x0,x1,x2)</span><br>x = [(<span class="hljs-number">1</span>, <span class="hljs-number">0.</span>, <span class="hljs-number">3</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">1.</span>, <span class="hljs-number">3</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">2.</span>, <span class="hljs-number">3</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">3.</span>, <span class="hljs-number">2</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">4.</span>, <span class="hljs-number">4</span>)]<br><span class="hljs-comment"># y[i] 样本点对应的输出</span><br>y = [<span class="hljs-number">95.364</span>, <span class="hljs-number">97.217205</span>, <span class="hljs-number">75.195834</span>, <span class="hljs-number">60.105519</span>, <span class="hljs-number">49.342380</span>]<br> <br><span class="hljs-comment"># 迭代阀值，当两次迭代损失函数之差小于该阀值时停止迭代</span><br>epsilon = <span class="hljs-number">0.0001</span><br> <br><span class="hljs-comment"># 学习率</span><br>alpha = <span class="hljs-number">0.01</span><br>diff = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]<br>max_itor = <span class="hljs-number">1000</span><br>error1 = <span class="hljs-number">0</span><br>error0 = <span class="hljs-number">0</span><br>cnt = <span class="hljs-number">0</span><br>m = <span class="hljs-built_in">len</span>(x)<br> <br><span class="hljs-comment"># 初始化参数</span><br>theta0 = <span class="hljs-number">0</span><br>theta1 = <span class="hljs-number">0</span><br>theta2 = <span class="hljs-number">0</span><br> <br> <br> <br> <br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    cnt += <span class="hljs-number">1</span><br> <br>    <span class="hljs-comment"># 参数迭代计算</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>        <span class="hljs-comment"># 拟合函数为 y = theta0 * x[0] + theta1 * x[1] +theta2 * x[2]</span><br>        <span class="hljs-comment"># 计算残差</span><br>        diff[<span class="hljs-number">0</span>] = (theta0 + theta1 * x[i][<span class="hljs-number">1</span>] + theta2 * x[i][<span class="hljs-number">2</span>]) - y[i]<br> <br>        <span class="hljs-comment"># 梯度 = diff[0] * x[i][j]</span><br>        theta0 -= alpha * diff[<span class="hljs-number">0</span>] * x[i][<span class="hljs-number">0</span>]<br>        theta1 -= alpha * diff[<span class="hljs-number">0</span>] * x[i][<span class="hljs-number">1</span>]<br>        theta2 -= alpha * diff[<span class="hljs-number">0</span>] * x[i][<span class="hljs-number">2</span>]<br> <br>    <span class="hljs-comment"># 计算损失函数</span><br>    error1 = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> lp <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(x)):<br>        error1 += (y[lp] - (theta0 + theta1 * x[lp][<span class="hljs-number">1</span>] + theta2 * x[lp][<span class="hljs-number">2</span>])) ** <span class="hljs-number">2</span> / <span class="hljs-number">2</span><br> <br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(error1 - error0) &lt; epsilon:<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">else</span>:<br>        error0 = error1<br> <br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;theta0 : %f, theta1 : %f, theta2 : %f, error1 : %f&quot;</span> % (theta0, theta1, theta2, error1))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Done: theta0 : %f, theta1 : %f, theta2 : %f&#x27;</span> % (theta0, theta1, theta2))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;迭代次数: %d&#x27;</span> % cnt)<br><span class="hljs-comment">#为什么相邻两个残差相差在0.0001说明我们能够找到全局最优解呢？因为根据梯度下降的原理，每一次迭代过程我们得到的m个theta必然越来越接近最优解的，相差0.0001说明m个theta无法继续下降</span><br></code></pre></td></tr></table></figure>
+<h4 id="梯度下降的表现形式">梯度下降的表现形式</h4>
+<p><img
+src="https://img-blog.csdnimg.cn/20210712204321620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" />
+在梯度下降算法中，这是正确实现同时更新的方法。我不打算解释为什么你需要同时更新，同时更新是梯度下降中的一种常用方法。我们之后会讲到，同步更新是更自然的实现方法。当人们谈到梯度下降时，他们的意思就是同步更新。</p>
+<h4 id="梯度下降的进一步理解">梯度下降的进一步理解</h4>
+<p>梯度下降算法如下： <img
+src="https://img-blog.csdnimg.cn/20210712204846425.png" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /> 描述：对 𝜃赋值，使得
+𝐽(𝜃)按梯度下降最快方向进行，一直迭代下去，最终得到局部最小值。其中
+𝑎是学习率（ learning
+rate），它决定了我们沿着能让代价函数下降程度最大的方
+向向下迈出的步子有多大</p>
+<p>求导能够把函数化简 <img
+src="https://img-blog.csdnimg.cn/2021071220530574.png" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /></p>
+<h4 id="线性回归与梯度下降">线性回归与梯度下降</h4>
+<p>梯度下降与线性回归算法 <img
+src="https://img-blog.csdnimg.cn/20210712205758183.png" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /> <img
+src="https://img-blog.csdnimg.cn/20210712205848160.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUzNjkzNg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload
+alt="在这里插入图片描述" /></p>
+<p>现在我们已经掌握了梯度下降，我们可以在不同的环境中使用梯度下降法，我们还将在
+不同的机器学习问题中大量地使用它。所以，祝贺大家成功学会你的第一个机器学习算法。</p>
 
                 
               </div>
@@ -738,21 +811,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 </html>
