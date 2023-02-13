@@ -16,12 +16,12 @@
   <meta name="author" content="Brianyjh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言 这周我们参考的是《机器学习实战：基于Scikit-Learn、Keras和TensorFlow》第三章的内容，进行对于分类问题的探讨，本文你将学会的知识：  机器学习中（其他）性能度量的计算方法 多分类策略 误差分析 多标签与多输出分类  mnist数据集(二分类) 我们本次训练的数据是著名的mnist数据集，从mnist.keys()我们可以看到其包含的内容 1234f">
+    <meta name="description" content="前言 这周我们参考的是《机器学习实战：基于Scikit-Learn、Keras和TensorFlow》第三章的内容，进行对于分类问题的探讨，本文你将学会的知识：  机器学习中（其他）适用于分类的性能度量方法 多分类策略 涉及多分类问题的性能度量 多标签与多输出分类  mnist数据集(二分类) 我们本次训练的数据是著名的mnist数据集，从mnist.keys()我们可以看到其包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习中的分类问题">
 <meta property="og:url" content="http://example.com/2022/10/29/20221029/index.html">
 <meta property="og:site_name" content="Brianyjh的私人小站">
-<meta property="og:description" content="前言 这周我们参考的是《机器学习实战：基于Scikit-Learn、Keras和TensorFlow》第三章的内容，进行对于分类问题的探讨，本文你将学会的知识：  机器学习中（其他）性能度量的计算方法 多分类策略 误差分析 多标签与多输出分类  mnist数据集(二分类) 我们本次训练的数据是著名的mnist数据集，从mnist.keys()我们可以看到其包含的内容 1234f">
+<meta property="og:description" content="前言 这周我们参考的是《机器学习实战：基于Scikit-Learn、Keras和TensorFlow》第三章的内容，进行对于分类问题的探讨，本文你将学会的知识：  机器学习中（其他）适用于分类的性能度量方法 多分类策略 涉及多分类问题的性能度量 多标签与多输出分类  mnist数据集(二分类) 我们本次训练的数据是著名的mnist数据集，从mnist.keys()我们可以看到其包">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/20221029/precision_recall_vs_threshold_plot-16670469194531.png">
 <meta property="og:image" content="http://example.com/images/20221029/precision_vs_recall_plot.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/images/20221029/image-20221101222259805.png">
 <meta property="og:image" content="http://example.com/images/20221029/image-20221101222354260.png">
 <meta property="article:published_time" content="2022-10-29T07:48:40.000Z">
-<meta property="article:modified_time" content="2022-11-01T14:32:20.770Z">
+<meta property="article:modified_time" content="2022-11-02T02:29:15.918Z">
 <meta property="article:author" content="Brianyjh">
 <meta property="article:tag" content="分类问题">
 <meta name="twitter:card" content="summary_large_image">
@@ -288,9 +288,9 @@
                 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言">前言</h1>
 <p>这周我们参考的是<em>《机器学习实战：基于Scikit-Learn、Keras和TensorFlow》</em>第三章的内容，进行对于分类问题的探讨，本文你将学会的知识：</p>
 <ol type="1">
-<li>机器学习中（其他）性能度量的计算方法</li>
+<li>机器学习中（其他）适用于分类的性能度量方法</li>
 <li>多分类策略</li>
-<li>误差分析</li>
+<li>涉及多分类问题的性能度量</li>
 <li>多标签与多输出分类</li>
 </ol>
 <h1 id="mnist数据集二分类">mnist数据集(二分类)</h1>
@@ -298,14 +298,20 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.datasets <span class="hljs-keyword">import</span> fetch_openml<br>mnist = fetch_openml(<span class="hljs-string">&#x27;mnist_784&#x27;</span>,version=<span class="hljs-number">1</span>,as_frame=<span class="hljs-literal">False</span>)<br>mnist.keys()<br><span class="hljs-comment">#dict_keys([&#x27;data&#x27;, &#x27;target&#x27;, &#x27;frame&#x27;, &#x27;categories&#x27;, &#x27;feature_names&#x27;, &#x27;target_names&#x27;, &#x27;DESCR&#x27;, &#x27;details&#x27;, &#x27;url&#x27;])</span><br></code></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">X, y =mnist[<span class="hljs-string">&#x27;data&#x27;</span>],mnist[<span class="hljs-string">&#x27;target&#x27;</span>]<br>X.shape<br><span class="hljs-comment"># (70000, 784)</span><br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>---------------------------------------------------mnist数据集的基本信息--------------------------------------------------------
-mnist数据集是NIST（National Institute of Standards and
-Technology，美国国家标准与技术研究所）数据集的一个子集
-使用<code>mnist.keys()</code>返回9个<code>key</code>名字 data：图片数据
-target：图片对应的字 frame: NoneType categories:无
-feature_names：数据集每个特征名字 target_names：target数据的名称
-DESCR：来源信息 details：详细信息 url：数据集网站
-7万张图片，每张图片28×28=784个特征，每个特征代表了每个像素点的强度，从0到255</p>
+<p>mnist数据集的基本信息</p>
+<p>mnist数据集是NIST（National Institute of Standards and
+Technology，美国国家标准与技术研究所）数据集的一个子集</p>
+<p>使用<code>mnist.keys()</code>返回9个<code>key</code>名字</p>
+<p>data：图片数据</p>
+<p>target：图片对应的字</p>
+<p>frame: NoneType</p>
+<p>categories:无</p>
+<p>feature_names：数据集每个特征名字</p>
+<p>target_names：target数据的名称</p>
+<p>DESCR：来源信息</p>
+<p>details：详细信息</p>
+<p>url：数据集网站</p>
+<p>7万张图片，每张图片28×28=784个特征，每个特征代表了每个像素点的强度，从0到255</p>
 </blockquote>
 <h2 id="划分数据">划分数据</h2>
 <p>mnist数据集实际上已经将数据进行了合理的划分——前60000个数据为训练集，后面的是测试集</p>
@@ -327,7 +333,10 @@ DESCR：来源信息 details：详细信息 url：数据集网站
 <p>因此我们再会尝试使用<strong>混淆矩阵</strong>进行性能评估</p>
 <h3 id="混淆矩阵">混淆矩阵</h3>
 <p><strong>混淆矩阵</strong>Confusion
-Matrix也称误差矩阵，是表示精度评价的一种标准格式，用n行n列的矩阵形式来表示https://blog.csdn.net/seagal890/article/details/105059498</p>
+Matrix也称误差矩阵，是表示精度评价的一种标准格式，用n行n列的矩阵形式来表示<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span
+class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+aria-label=" [机器学习笔记： 混淆矩阵](https://blog.csdn.net/seagal890/article/details/105059498)
+">[1]</span></a></sup></p>
 <p>在图像精度评价中，主要用于比较分类结果和实际测得值，可以把分类结果的精度显示在一个混淆矩阵里面。</p>
 <p>混淆矩阵的结构一般如下图表示的方法。</p>
 <p>混淆矩阵要表达的含义：</p>
@@ -408,7 +417,10 @@ alt="image-20221101214240997" />
 <figcaption aria-hidden="true">image-20221101214240997</figcaption>
 </figure>
 <h1 id="多分类问题">多分类问题</h1>
-<p>对于多分类的策略，常常有俩个策略：</p>
+<p>对于多分类的策略，常常有俩个策略<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span
+class="hint--top hint--error hint--medium hint--rounded hint--bounce"
+aria-label="[多分类学习（OvO、OVR、MVM 原理区别）](https://blog.csdn.net/qq_34120015/article/details/123618901)
+">[2]</span></a></sup>：</p>
 <p>OvR策略是一种一对多策略，每次将一类的样例作为正例、其他所有数据作为反例来进行数据集拆分。对于三分类问题，会分成：</p>
 <blockquote>
 <p>判断是否是0的二元分类器 以及相应得分 判断是否是1的二元分类器
@@ -457,6 +469,31 @@ alt="image-20221101222259805" />
 alt="image-20221101222354260" />
 <figcaption aria-hidden="true">image-20221101222354260</figcaption>
 </figure>
+<h1 id="讨论">讨论</h1>
+<h2
+id="交叉验证过程中cross_val_score与cross_val_predict的使用">交叉验证过程中<code>cross_val_score</code>与<code>cross_val_predict</code>的使用</h2>
+<p>：得到K折验证中每一折的得分，K个得分取平均值就是模型的平均性能</p>
+<p>cross_val_predict：得到经过K折交叉验证计算得到的每个训练验证的输出预测</p>
+<h1 id="参考">参考</h1>
+<div id="footnotes">
+<hr>
+<div id="footnotelist">
+<ol style="list-style: none; padding-left: 0; margin-left: 40px">
+<li id="fn:1">
+<span
+style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span
+style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://blog.csdn.net/seagal890/article/details/105059498">机器学习笔记：
+混淆矩阵</a><a href="#fnref:1" rev="footnote"> ↩︎</a></span>
+</li>
+<li id="fn:2">
+<span
+style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span
+style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34120015/article/details/123618901">多分类学习（OvO、OVR、MVM
+原理区别）</a><a href="#fnref:2" rev="footnote"> ↩︎</a></span>
+</li>
+</ol>
+</div>
+</div>
 
                 
               </div>
@@ -537,6 +574,12 @@ alt="image-20221101222354260" />
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/12/22/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" title="线性模型">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">线性模型</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -838,21 +881,5 @@ alt="image-20221101222354260" />
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 </html>
