@@ -1,0 +1,777 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/tx.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Brianyjh">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="进行简单的基因家族分析 荞麦、大豆、拟南芥的基因家族分析 创建文件夹 1234567891011mkdir FAD4-likeless -S cp &#x2F;home&#x2F;ubuntu&#x2F;work&#x2F;rnaseq-apple-training&#x2F;linux-basic&#x2F;DATA&#x2F;atha.fasta FAD4-like&#x2F;atha.fastaless -S atha.fastacp &#x2F;home&#x2F;ubuntu&#x2F;w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进行简单的基因家族分析">
+<meta property="og:url" content="http://example.com/2023/07/12/%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Brianyjh的私人小站">
+<meta property="og:description" content="进行简单的基因家族分析 荞麦、大豆、拟南芥的基因家族分析 创建文件夹 1234567891011mkdir FAD4-likeless -S cp &#x2F;home&#x2F;ubuntu&#x2F;work&#x2F;rnaseq-apple-training&#x2F;linux-basic&#x2F;DATA&#x2F;atha.fasta FAD4-like&#x2F;atha.fastaless -S atha.fastacp &#x2F;home&#x2F;ubuntu&#x2F;w">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230714201156375.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230714204748889.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715101803793.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715101820232.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715101950339.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715102110614.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715102203908.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715102350202.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715102432317.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715102454577.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715102611300.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715102734734.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715103536937.png">
+<meta property="og:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230715103642950.png">
+<meta property="article:published_time" content="2023-07-12T07:48:40.000Z">
+<meta property="article:modified_time" content="2023-08-12T09:52:37.053Z">
+<meta property="article:author" content="Brianyjh">
+<meta property="article:tag" content="bioinformatics">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="e:\source\images\%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90\image-20230714201156375.png">
+  
+  
+  
+  <title>进行简单的基因家族分析 - Brianyjh的私人小站</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Brian Yang</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/kl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="进行简单的基因家族分析"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-12 15:48" pubdate>
+          2023年7月12日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          36 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">进行简单的基因家族分析</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>进行简单的基因家族分析</p>
+<p>荞麦、大豆、拟南芥的基因家族分析</p>
+<p>创建文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> FAD4-like<br>less -S <br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/atha.fasta FAD4-like/atha.fasta<br>less -S atha.fasta<br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/atha_FAD4.fa atha_FAD4.fa<br>less -S atha_FAD4.fa<br><span class="hljs-built_in">cp</span> atha_FAD4.fa  query.fasta<br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/sind.fasta ./<br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/gmax.fasta ./<br><span class="hljs-built_in">cat</span> atha.fasta gmax.fasta sind.fasta &gt;all.fasta<br><br></code></pre></td></tr></table></figure>
+<p>拟南芥FAD4-like基因有三条，At1g62190、At2g22890、At4g27030</p>
+<p>找到这三个基因的蛋白序列</p>
+<figure>
+<img src="E:\source\images\运行分析\image-20230714201156375.png" srcset="/img/loading.gif" lazyload alt="image-20230714201156375" /><figcaption aria-hidden="true">image-20230714201156375</figcaption>
+</figure>
+<p>如果看俩种基因是否含有FAD4基因家族，找拟南芥的三条基因，看看大豆里面有没有对应的基因，常见以下方法：</p>
+<p>一个是基于blast比对，一个是基于结构域，常常二者结合</p>
+<p>这里仅仅使用blast将拟南芥的FAD4基因家族分别与大豆和结构域做比对</p>
+<p>blast数据库构建</p>
+<ul>
+<li>首先构建blast数据库</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">makeblastdb -dbtype prot  -<span class="hljs-keyword">in</span> all.fasta -out all<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="E:\source\images\运行分析\image-20230714204748889.png" srcset="/img/loading.gif" lazyload alt="image-20230714204748889" /><figcaption aria-hidden="true">image-20230714204748889</figcaption>
+</figure>
+<ul>
+<li>blast比对</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">blastp -query query.fasta -db all -out blast.out -evalue 1e-10 -outfmt 7<br></code></pre></td></tr></table></figure>
+<p>局部比对，</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># Database: all</span><br><span class="hljs-comment"># Fields: query acc., subject acc., % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score</span><br><span class="hljs-comment"># 10 hits found</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        atha|AT1G62190.<span class="hljs-number">1</span>        <span class="hljs-number">100</span>.<span class="hljs-number">000</span> <span class="hljs-number">295</span>     <span class="hljs-number">0</span>       <span class="hljs-number">0</span>       <span class="hljs-number">1</span>       <span class="hljs-number">295</span>     <span class="hljs-number">1</span>       <span class="hljs-number">295</span>     <span class="hljs-number">0</span>.<span class="hljs-number">0</span>     <span class="hljs-number">613</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        atha|AT4G27030.<span class="hljs-number">1</span>        <span class="hljs-number">68</span>.<span class="hljs-number">770</span>  <span class="hljs-number">317</span>     <span class="hljs-number">70</span>      <span class="hljs-number">2</span>       <span class="hljs-number">1</span>       <span class="hljs-number">288</span>     <span class="hljs-number">1</span>       <span class="hljs-number">317</span>     <span class="hljs-number">1</span>.<span class="hljs-number">82</span>e-<span class="hljs-number">160</span>       <span class="hljs-number">451</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        atha|AT2G22890.<span class="hljs-number">1</span>        <span class="hljs-number">70</span>.<span class="hljs-number">775</span>  <span class="hljs-number">284</span>     <span class="hljs-number">76</span>      <span class="hljs-number">4</span>       <span class="hljs-number">1</span>       <span class="hljs-number">282</span>     <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">2</span>.<span class="hljs-number">33</span>e-<span class="hljs-number">144</span>       <span class="hljs-number">408</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        gmax|KRG98807   <span class="hljs-number">54</span>.<span class="hljs-number">861</span>  <span class="hljs-number">288</span>     <span class="hljs-number">121</span>     <span class="hljs-number">1</span>       <span class="hljs-number">11</span>      <span class="hljs-number">289</span>     <span class="hljs-number">15</span>      <span class="hljs-number">302</span>     <span class="hljs-number">2</span>.<span class="hljs-number">15</span>e-<span class="hljs-number">113</span>       <span class="hljs-number">331</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        gmax|KRH46136   <span class="hljs-number">55</span>.<span class="hljs-number">160</span>  <span class="hljs-number">281</span>     <span class="hljs-number">106</span>     <span class="hljs-number">3</span>       <span class="hljs-number">27</span>      <span class="hljs-number">289</span>     <span class="hljs-number">28</span>      <span class="hljs-number">306</span>     <span class="hljs-number">2</span>.<span class="hljs-number">10</span>e-<span class="hljs-number">111</span>       <span class="hljs-number">326</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1014454        <span class="hljs-number">50</span>.<span class="hljs-number">336</span>  <span class="hljs-number">298</span>     <span class="hljs-number">120</span>     <span class="hljs-number">4</span>       <span class="hljs-number">1</span>       <span class="hljs-number">290</span>     <span class="hljs-number">1</span>       <span class="hljs-number">278</span>     <span class="hljs-number">6</span>.<span class="hljs-number">80</span>e-<span class="hljs-number">102</span>       <span class="hljs-number">301</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1005002        <span class="hljs-number">47</span>.<span class="hljs-number">737</span>  <span class="hljs-number">243</span>     <span class="hljs-number">122</span>     <span class="hljs-number">1</span>       <span class="hljs-number">51</span>      <span class="hljs-number">288</span>     <span class="hljs-number">10</span>      <span class="hljs-number">252</span>     <span class="hljs-number">1</span>.<span class="hljs-number">26</span>e-<span class="hljs-number">79</span>        <span class="hljs-number">243</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1005003        <span class="hljs-number">51</span>.<span class="hljs-number">598</span>  <span class="hljs-number">219</span>     <span class="hljs-number">105</span>     <span class="hljs-number">1</span>       <span class="hljs-number">65</span>      <span class="hljs-number">282</span>     <span class="hljs-number">26</span>      <span class="hljs-number">244</span>     <span class="hljs-number">1</span>.<span class="hljs-number">33</span>e-<span class="hljs-number">76</span>        <span class="hljs-number">235</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1004729        <span class="hljs-number">42</span>.<span class="hljs-number">060</span>  <span class="hljs-number">233</span>     <span class="hljs-number">104</span>     <span class="hljs-number">2</span>       <span class="hljs-number">56</span>      <span class="hljs-number">283</span>     <span class="hljs-number">16</span>      <span class="hljs-number">222</span>     <span class="hljs-number">1</span>.<span class="hljs-number">56</span>e-<span class="hljs-number">57</span>        <span class="hljs-number">186</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1005004        <span class="hljs-number">47</span>.<span class="hljs-number">794</span>  <span class="hljs-number">136</span>     <span class="hljs-number">70</span>      <span class="hljs-number">1</span>       <span class="hljs-number">147</span>     <span class="hljs-number">282</span>     <span class="hljs-number">74</span>      <span class="hljs-number">208</span>     <span class="hljs-number">2</span>.<span class="hljs-number">89</span>e-<span class="hljs-number">35</span>        <span class="hljs-number">127</span><br><span class="hljs-comment"># BLASTP 2.5.0+</span><br><span class="hljs-comment"># Query: atha|AT2G22890.1</span><br><span class="hljs-comment"># Database: all</span><br><span class="hljs-comment"># Fields: query acc., subject acc., % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score</span><br><span class="hljs-comment"># 10 hits found</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        atha|AT2G22890.<span class="hljs-number">1</span>        <span class="hljs-number">100</span>.<span class="hljs-number">000</span> <span class="hljs-number">279</span>     <span class="hljs-number">0</span>       <span class="hljs-number">0</span>       <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">0</span>.<span class="hljs-number">0</span>     <span class="hljs-number">582</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        atha|AT4G27030.<span class="hljs-number">1</span>        <span class="hljs-number">68</span>.<span class="hljs-number">269</span>  <span class="hljs-number">312</span>     <span class="hljs-number">65</span>      <span class="hljs-number">3</span>       <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>       <span class="hljs-number">311</span>     <span class="hljs-number">9</span>.<span class="hljs-number">74</span>e-<span class="hljs-number">152</span>       <span class="hljs-number">428</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        atha|AT1G62190.<span class="hljs-number">1</span>        <span class="hljs-number">70</span>.<span class="hljs-number">775</span>  <span class="hljs-number">284</span>     <span class="hljs-number">76</span>      <span class="hljs-number">4</span>       <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>       <span class="hljs-number">282</span>     <span class="hljs-number">2</span>.<span class="hljs-number">20</span>e-<span class="hljs-number">144</span>       <span class="hljs-number">408</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        gmax|KRG98807   <span class="hljs-number">59</span>.<span class="hljs-number">925</span>  <span class="hljs-number">267</span>     <span class="hljs-number">96</span>      <span class="hljs-number">2</span>       <span class="hljs-number">24</span>      <span class="hljs-number">279</span>     <span class="hljs-number">29</span>      <span class="hljs-number">295</span>     <span class="hljs-number">5</span>.<span class="hljs-number">88</span>e-<span class="hljs-number">113</span>       <span class="hljs-number">329</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        gmax|KRH46136   <span class="hljs-number">56</span>.<span class="hljs-number">000</span>  <span class="hljs-number">300</span>     <span class="hljs-number">110</span>     <span class="hljs-number">4</span>       <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>       <span class="hljs-number">299</span>     <span class="hljs-number">3</span>.<span class="hljs-number">70</span>e-<span class="hljs-number">112</span>       <span class="hljs-number">327</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1014454        <span class="hljs-number">56</span>.<span class="hljs-number">627</span>  <span class="hljs-number">249</span>     <span class="hljs-number">84</span>      <span class="hljs-number">3</span>       <span class="hljs-number">36</span>      <span class="hljs-number">279</span>     <span class="hljs-number">41</span>      <span class="hljs-number">270</span>     <span class="hljs-number">3</span>.<span class="hljs-number">24</span>e-<span class="hljs-number">97</span>        <span class="hljs-number">288</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1005002        <span class="hljs-number">49</span>.<span class="hljs-number">784</span>  <span class="hljs-number">231</span>     <span class="hljs-number">111</span>     <span class="hljs-number">2</span>       <span class="hljs-number">54</span>      <span class="hljs-number">279</span>     <span class="hljs-number">16</span>      <span class="hljs-number">246</span>     <span class="hljs-number">1</span>.<span class="hljs-number">17</span>e-<span class="hljs-number">75</span>        <span class="hljs-number">232</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1005003        <span class="hljs-number">48</span>.<span class="hljs-number">148</span>  <span class="hljs-number">216</span>     <span class="hljs-number">111</span>     <span class="hljs-number">1</span>       <span class="hljs-number">62</span>      <span class="hljs-number">276</span>     <span class="hljs-number">26</span>      <span class="hljs-number">241</span>     <span class="hljs-number">2</span>.<span class="hljs-number">15</span>e-<span class="hljs-number">71</span>        <span class="hljs-number">221</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1004729        <span class="hljs-number">40</span>.<span class="hljs-number">179</span>  <span class="hljs-number">224</span>     <span class="hljs-number">103</span>     <span class="hljs-number">3</span>       <span class="hljs-number">61</span>      <span class="hljs-number">279</span>     <span class="hljs-number">24</span>      <span class="hljs-number">221</span>     <span class="hljs-number">8</span>.<span class="hljs-number">03</span>e-<span class="hljs-number">52</span>        <span class="hljs-number">171</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1005004        <span class="hljs-number">44</span>.<span class="hljs-number">853</span>  <span class="hljs-number">136</span>     <span class="hljs-number">74</span>      <span class="hljs-number">1</span>       <span class="hljs-number">144</span>     <span class="hljs-number">279</span>     <span class="hljs-number">74</span>      <span class="hljs-number">208</span>     <span class="hljs-number">5</span>.<span class="hljs-number">89</span>e-<span class="hljs-number">32</span>        <span class="hljs-number">119</span><br><span class="hljs-comment"># BLASTP 2.5.0+</span><br><span class="hljs-comment"># Query: atha|AT4G27030.1</span><br><span class="hljs-comment"># Database: all</span><br><span class="hljs-comment"># Fields: query acc., subject acc., % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score</span><br><span class="hljs-comment"># 10 hits found</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        atha|AT4G27030.<span class="hljs-number">1</span>        <span class="hljs-number">100</span>.<span class="hljs-number">000</span> <span class="hljs-number">323</span>     <span class="hljs-number">0</span>       <span class="hljs-number">0</span>       <span class="hljs-number">1</span>       <span class="hljs-number">323</span>     <span class="hljs-number">1</span>       <span class="hljs-number">323</span>     <span class="hljs-number">0</span>.<span class="hljs-number">0</span>     <span class="hljs-number">672</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        atha|AT1G62190.<span class="hljs-number">1</span>        <span class="hljs-number">68</span>.<span class="hljs-number">652</span>  <span class="hljs-number">319</span>     <span class="hljs-number">67</span>      <span class="hljs-number">3</span>       <span class="hljs-number">1</span>       <span class="hljs-number">317</span>     <span class="hljs-number">1</span>       <span class="hljs-number">288</span>     <span class="hljs-number">2</span>.<span class="hljs-number">32</span>e-<span class="hljs-number">159</span>       <span class="hljs-number">448</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        atha|AT2G22890.<span class="hljs-number">1</span>        <span class="hljs-number">68</span>.<span class="hljs-number">269</span>  <span class="hljs-number">312</span>     <span class="hljs-number">65</span>      <span class="hljs-number">3</span>       <span class="hljs-number">1</span>       <span class="hljs-number">311</span>     <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>.<span class="hljs-number">13</span>e-<span class="hljs-number">151</span>       <span class="hljs-number">428</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        gmax|KRG98807   <span class="hljs-number">62</span>.<span class="hljs-number">126</span>  <span class="hljs-number">301</span>     <span class="hljs-number">94</span>      <span class="hljs-number">3</span>       <span class="hljs-number">19</span>      <span class="hljs-number">317</span>     <span class="hljs-number">19</span>      <span class="hljs-number">301</span>     <span class="hljs-number">7</span>.<span class="hljs-number">04</span>e-<span class="hljs-number">133</span>       <span class="hljs-number">382</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        gmax|KRH46136   <span class="hljs-number">64</span>.<span class="hljs-number">906</span>  <span class="hljs-number">265</span>     <span class="hljs-number">80</span>      <span class="hljs-number">1</span>       <span class="hljs-number">66</span>      <span class="hljs-number">317</span>     <span class="hljs-number">41</span>      <span class="hljs-number">305</span>     <span class="hljs-number">3</span>.<span class="hljs-number">69</span>e-<span class="hljs-number">130</span>       <span class="hljs-number">375</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1014454        <span class="hljs-number">57</span>.<span class="hljs-number">994</span>  <span class="hljs-number">319</span>     <span class="hljs-number">85</span>      <span class="hljs-number">9</span>       <span class="hljs-number">1</span>       <span class="hljs-number">315</span>     <span class="hljs-number">1</span>       <span class="hljs-number">274</span>     <span class="hljs-number">9</span>.<span class="hljs-number">96</span>e-<span class="hljs-number">118</span>       <span class="hljs-number">342</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1005002        <span class="hljs-number">52</span>.<span class="hljs-number">586</span>  <span class="hljs-number">232</span>     <span class="hljs-number">105</span>     <span class="hljs-number">2</span>       <span class="hljs-number">86</span>      <span class="hljs-number">312</span>     <span class="hljs-number">16</span>      <span class="hljs-number">247</span>     <span class="hljs-number">4</span>.<span class="hljs-number">65</span>e-<span class="hljs-number">84</span>        <span class="hljs-number">255</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1005003        <span class="hljs-number">54</span>.<span class="hljs-number">751</span>  <span class="hljs-number">221</span>     <span class="hljs-number">95</span>      <span class="hljs-number">2</span>       <span class="hljs-number">94</span>      <span class="hljs-number">311</span>     <span class="hljs-number">26</span>      <span class="hljs-number">244</span>     <span class="hljs-number">2</span>.<span class="hljs-number">17</span>e-<span class="hljs-number">78</span>        <span class="hljs-number">241</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1004729        <span class="hljs-number">42</span>.<span class="hljs-number">222</span>  <span class="hljs-number">225</span>     <span class="hljs-number">99</span>      <span class="hljs-number">2</span>       <span class="hljs-number">93</span>      <span class="hljs-number">312</span>     <span class="hljs-number">24</span>      <span class="hljs-number">222</span>     <span class="hljs-number">6</span>.<span class="hljs-number">35</span>e-<span class="hljs-number">57</span>        <span class="hljs-number">185</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1005004        <span class="hljs-number">53</span>.<span class="hljs-number">788</span>  <span class="hljs-number">132</span>     <span class="hljs-number">60</span>      <span class="hljs-number">1</span>       <span class="hljs-number">180</span>     <span class="hljs-number">311</span>     <span class="hljs-number">78</span>      <span class="hljs-number">208</span>     <span class="hljs-number">5</span>.<span class="hljs-number">63</span>e-<span class="hljs-number">38</span>        <span class="hljs-number">135</span><br><span class="hljs-comment"># BLAST processed 3 queries</span><br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>提取id</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">grep -v  <span class="hljs-string">&quot;#&quot;</span> blast.out &gt;blast2.out <span class="hljs-comment">#去掉#号</span><br><br>awk <span class="hljs-string">&#x27;$3&gt;50 &amp;&amp; $11&lt;1e-30 &#123;print $2&#125;&#x27;</span> blast2.out &gt;blast3.out<br><br>grep -v <span class="hljs-string">&quot;#&quot;</span> blast.out | awk <span class="hljs-string">&#x27;$3&gt;50 &amp;&amp; $11&lt;1e-30&#123;print $2&#125;&#x27;</span> |<span class="hljs-built_in">sort</span>|<span class="hljs-built_in">uniq</span> &gt;protein_ids.txt<br><br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>提取蛋白序列</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">seqtk subseq all.fasta protein_ids.txt<br></code></pre></td></tr></table></figure>
+<p>到filezela把文件下载下来</p>
+<p>然后放到mega里面进行比对</p>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715101803793.png" srcset="/img/loading.gif" lazyload alt="image-20230715101803793" /><figcaption aria-hidden="true">image-20230715101803793</figcaption>
+</figure>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715101820232.png" srcset="/img/loading.gif" lazyload alt="image-20230715101820232" /><figcaption aria-hidden="true">image-20230715101820232</figcaption>
+</figure>
+<p>多序列比对</p>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715101950339.png" srcset="/img/loading.gif" lazyload alt="image-20230715101950339" /><figcaption aria-hidden="true">image-20230715101950339</figcaption>
+</figure>
+<p>选择clust 或者 muscle</p>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715102110614.png" srcset="/img/loading.gif" lazyload alt="image-20230715102110614" /><figcaption aria-hidden="true">image-20230715102110614</figcaption>
+</figure>
+<p>然后做进化树分析</p>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715102203908.png" srcset="/img/loading.gif" lazyload alt="image-20230715102203908" /><figcaption aria-hidden="true">image-20230715102203908</figcaption>
+</figure>
+<p>这里使用最大似然分析或者NJ法</p>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715102350202.png" srcset="/img/loading.gif" lazyload alt="image-20230715102350202" /><figcaption aria-hidden="true">image-20230715102350202</figcaption>
+</figure>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715102432317.png" srcset="/img/loading.gif" lazyload alt="image-20230715102432317" /><figcaption aria-hidden="true">image-20230715102432317</figcaption>
+</figure>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715102454577.png" srcset="/img/loading.gif" lazyload alt="image-20230715102454577" /><figcaption aria-hidden="true">image-20230715102454577</figcaption>
+</figure>
+<p>修改拓扑结构</p>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715102611300.png" srcset="/img/loading.gif" lazyload alt="image-20230715102611300" /><figcaption aria-hidden="true">image-20230715102611300</figcaption>
+</figure>
+<p>还可以调整颜色</p>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715102734734.png" srcset="/img/loading.gif" lazyload alt="image-20230715102734734" /><figcaption aria-hidden="true">image-20230715102734734</figcaption>
+</figure>
+<p>run函数</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sh</span> <span class="hljs-keyword">run</span>.<span class="hljs-keyword">sh</span> 1&gt;<span class="hljs-keyword">run</span>.<span class="hljs-keyword">log</span> 2&gt;&amp;1 #运行成功就进<span class="hljs-keyword">log</span> 运行失败还是重定向到1里<br>nohup <span class="hljs-keyword">sh</span> <span class="hljs-keyword">run</span>.<span class="hljs-keyword">sh</span> 1&gt;<span class="hljs-keyword">run</span>.<span class="hljs-keyword">log</span> 2&gt;&amp;1 &amp;  # 首尾加个nohup 和 &amp;<br>htop #查看后台进程<br>htop -<span class="hljs-keyword">u</span> ubuntu #专门后台<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715103536937.png" srcset="/img/loading.gif" lazyload alt="image-20230715103536937" /><figcaption aria-hidden="true">image-20230715103536937</figcaption>
+</figure>
+<figure>
+<img src="E:\source\images\运行分析\image-20230715103642950.png" srcset="/img/loading.gif" lazyload alt="image-20230715103642950" /><figcaption aria-hidden="true">image-20230715103642950</figcaption>
+</figure>
+<p>1和2代表俩个线程</p>
+<p>Mem代表了1.94G的内存</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/bioinformatics/">#bioinformatics</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>进行简单的基因家族分析</div>
+      <div>http://example.com/2023/07/12/运行分析/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Brianyjh</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/07/18/%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90/" title="转录组分析">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">转录组分析</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/11/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A7%9F%E5%80%9F/" title="进行简单的基因家族分析">
+                        <span class="hidden-mobile">进行简单的基因家族分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Brianyjh</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="website-duration">载入网站运行时间...</span> <script src="/js/duration.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <span><br></span>	
+<span>总访客&nbsp<span id="busuanzi_value_site_uv"></span>&nbsp人 &nbsp</span>
+<span>访问总量&nbsp<span id="busuanzi_value_site_pv"></span>&nbsp次</span> </div>   
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP证912321号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=93021872"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>浙公网安备93021872号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>

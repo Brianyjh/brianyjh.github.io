@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/tx.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Brianyjh">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="DNA的变异可能在RNA的表达上表现出来 先测rna 得到表达数据挖掘三张表 样本信息表 表达矩阵 基因信息表  在植物生物信息挖掘中，特别是在进行RNA测序（RNA-seq）后得到的表达数据，通常会涉及三张表：样本信息表、表达矩阵和基因信息表。这些表格提供了关于样本、表达量和基因的重要信息，对于进一步的分析和解释至关重要。 1.样本信息表： 样本信息表是描述每个样本的属性和特征的表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="转录组分析">
+<meta property="og:url" content="http://example.com/2023/07/18/%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Brianyjh的私人小站">
+<meta property="og:description" content="DNA的变异可能在RNA的表达上表现出来 先测rna 得到表达数据挖掘三张表 样本信息表 表达矩阵 基因信息表  在植物生物信息挖掘中，特别是在进行RNA测序（RNA-seq）后得到的表达数据，通常会涉及三张表：样本信息表、表达矩阵和基因信息表。这些表格提供了关于样本、表达量和基因的重要信息，对于进一步的分析和解释至关重要。 1.样本信息表： 样本信息表是描述每个样本的属性和特征的表">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:\source\images\%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90\image-20230718162826735.png">
+<meta property="og:image" content="e:\source\images\%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90\image-20230718162917873.png">
+<meta property="og:image" content="e:\source\images\%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90\image-20230718162939624.png">
+<meta property="og:image" content="e:\source\images\%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90\image-20230718162957364.png">
+<meta property="og:image" content="e:\source\images\%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90\image-20230718163108893.png">
+<meta property="og:image" content="e:\source\images\%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90\image-20230718163516734.png">
+<meta property="og:image" content="e:\source\images\%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90\image-20230718163603384.png">
+<meta property="og:image" content="e:\source\images\%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90\image-20230718174600522.png">
+<meta property="article:published_time" content="2023-07-18T07:48:40.000Z">
+<meta property="article:modified_time" content="2023-08-12T09:53:26.669Z">
+<meta property="article:author" content="Brianyjh">
+<meta property="article:tag" content="bioinformatics">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="e:\source\images\%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90\image-20230718162826735.png">
+  
+  
+  
+  <title>转录组分析 - Brianyjh的私人小站</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Brian Yang</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/kl.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="转录组分析"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-18 15:48" pubdate>
+          2023年7月18日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">转录组分析</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>DNA的变异可能在RNA的表达上表现出来</p>
+<p>先测rna</p>
+<p>得到表达数据挖掘三张表</p>
+<p>样本信息表</p>
+<p>表达矩阵</p>
+<p>基因信息表</p>
+<blockquote>
+<p>在植物生物信息挖掘中，特别是在进行RNA测序（RNA-seq）后得到的表达数据，通常会涉及三张表：样本信息表、表达矩阵和基因信息表。这些表格提供了关于样本、表达量和基因的重要信息，对于进一步的分析和解释至关重要。 1.样本信息表： 样本信息表是描述每个样本的属性和特征的表格。它包含每个样本的唯一标识符（如样本ID或名称），以及与样本相关的各种信息，如处理条件、生理状态、时间点等。样本信息表提供了实验设计和样本分组的基础，帮助研究人员在后续分析中考虑到潜在的批次效应或其他实验条件对表达量的影响。 2.表达矩阵： 表达矩阵是一个二维矩阵，其中行表示基因，列表示样本，每个元素表示相应基因在对应样本中的表达量。表达矩阵是从RNA-seq数据中计算得出的主要结果之一。它反映了每个基因在不同样本中的表达水平，可以用于比较不同基因的表达模式、寻找差异表达基因以及进行聚类和分类等分析。表达矩阵的值通常是基因表达的定量值，例如FPKM（Fragments Per Kilobase of transcript per Million mapped reads）或TPM（Transcripts Per Million）。 3.基因信息表： 基因信息表提供了每个基因的注释和相关信息。它包含基因的唯一标识符、基因名、基因描述、功能注释、基因本体论述（Gene Ontology，GO）注释等。基因信息表提供了对于表达矩阵中的基因进行功能注释和解释的基础。通过基因信息表，研究人员可以了解每个基因的功能、参与的生物过程以及可能的调控机制，从而进一步理解表达数据的生物学意义。 这三张表在植物生物信息挖掘中是相互关联的。样本信息表提供了实验设计和样本分组的基础，表达矩阵提供了基因在样本中的表达水平信息，基因信息表提供了对基因功能和注释的解释。通过整合和分析这些表格的信息，研究人员可以揭示植物基因表达的模式、寻找差异表达基因、发现关键的生物学通路以及探索植物的生物学机制。</p>
+</blockquote>
+<p>当研究人员想要了解哪些基因在特定条件下被表达、表达量如何变化时，他们可以使用两种常见的方法：表达芯片和RNA测序（RNA-seq）。</p>
+<p>表达芯片是一种基于杂交技术的高通量基因表达分析方法。它使用已知的DNA探针序列来检测样本中特定基因的表达水平。首先，研究人员将待检测的RNA样本转录成互补DNA（cDNA），然后将其与芯片上的DNA探针进行杂交。芯片上的DNA探针代表了大量的基因，每个探针对应一个特定的基因。如果待测的RNA中含有与DNA探针互补的序列，它们会结合在一起。之后，通过检测结合的信号强度，可以确定基因的表达水平。表达芯片适用于检测已知基因的表达情况，但对于未知基因或基因组中的变异不太敏感。</p>
+<p>相比之下，RNA测序（RNA-seq）是一种更先进、更全面的方法，可以提供更详细的基因表达信息。RNA-seq利用高通量测序技术，直接对RNA样本进行测序。首先，RNA样本被逆转录成cDNA，然后进行文库构建和测序。测序得到的是cDNA的序列信息，然后使用计算方法将这些序列比对到参考基因组上，以确定每个基因的表达水平。与表达芯片不同，RNA-seq不受限于已知基因，可以发现新的转录本、识别未知基因和变异，并提供更准确的表达量测量。此外，RNA-seq还可以提供转录本的边界信息、剪接变体和基因表达的动态范围。</p>
+<p>因此，表达芯片主要适用于检测已知基因的表达水平，而RNA-seq可以提供更全面的信息，包括已知和未知基因的表达，并提供更详细的转录本分析。RNA-seq通常在研究中更受青睐，因为它具有更高的灵敏度和更广泛的应用范围，尤其适用于探索未知基因或进行深入的基因表达研究。</p>
+<p>表达芯片和RNA-seq在敏感性和动态范围方面存在一些区别，这些区别主要源自它们的原理和技术差异。</p>
+<p>敏感性： 表达芯片的敏感性通常较低。它使用预先设计的DNA探针来检测已知基因的表达水平，这些探针通常是特定的序列片段。因此，对于未知基因或未覆盖的基因，表达芯片无法提供相应的表达信息。此外，由于杂交过程和检测方法的限制，表达芯片可能无法准确地测量低表达基因或表达量变化较小的基因。</p>
+<p>相比之下，RNA-seq具有更高的敏感性。它使用高通量测序技术直接测序RNA样本，因此不受预先设计的探针的限制。RNA-seq能够检测到低表达基因和罕见转录本，因为它能够检测到更广泛的RNA序列。此外，RNA-seq的信号强度与基因的表达量呈线性关系，使其能够准确测量表达量的变化。</p>
+<p>动态范围： 动态范围是指可以检测到的最低和最高表达量之间的差异范围。表达芯片的动态范围通常较窄。由于使用的DNA探针是预先确定的，表达芯片对于高表达基因可能存在饱和效应，即高表达基因的信号强度达到上限，无法准确测量其真实的表达水平。另一方面，对于低表达基因，表达芯片的信号可能混杂在背景噪声中，导致较低的动态范围。</p>
+<p>RNA-seq具有较宽的动态范围。通过测序RNA样本并计数每个基因的测序reads数量，RNA-seq可以提供基因表达的直接定量信息。由于没有信号饱和的限制，并且使用计数数据来表示表达量，RNA-seq能够捕获从极低到极高表达水平的基因，并提供更广泛的动态范围。</p>
+<p>这些差异主要是由于表达芯片和RNA-seq的技术原理不同所致。表达芯片使用杂交技术和预先设计的DNA探针，而RNA-seq使用直接测序RNA样本的方法。RNA-seq的直接测序和计数优势使其在敏感性和动态范围方面具有更高的性能，尤其适用于研究未知基因或探索表达水平变化较大的基因。</p>
+<ul>
+<li>比对</li>
+</ul>
+<p>把rna数据比对到参考基因组上</p>
+<ul>
+<li><p>表达定量</p></li>
+<li><p>标准化</p></li>
+</ul>
+<p>TPM------------------------------------TMM</p>
+<p>差异表达</p>
+<p>log2FC FoldChange</p>
+<p>生物学重复-----------------------多个生物学重复</p>
+<p>测3个生物学重复</p>
+<p>假设检验</p>
+<p>统计分布----t检验</p>
+<p>组内差异小 组间差异大-------------被判定为差异表达</p>
+<p>如何筛选差异基因？</p>
+<p>使用Pvalue adjust &lt; 0.05认为是差异表达基因 Pv不能设置为0.02</p>
+<p>生物学重复越多，鉴定出的差异基因就越多？</p>
+<p>数据太少无法判断，但是数据多了可以增大决策的准确性</p>
+<p>fold change &gt;2 log2FC &gt; 1</p>
+<p>富集分析</p>
+<p>样本聚类分析和WGCNA</p>
+<p>相关系数：比较组织之间的重复</p>
+<p>3*4*2</p>
+<p>特征表达分析</p>
+<p>共有和特有表达基因</p>
+<ul>
+<li>测序数据</li>
+</ul>
+<p>寻找数据</p>
+<figure>
+<img src="E:\source\images\转录组分析\image-20230718162826735.png" srcset="/img/loading.gif" lazyload alt="image-20230718162826735" /><figcaption aria-hidden="true">image-20230718162826735</figcaption>
+</figure>
+<figure>
+<img src="E:\source\images\转录组分析\image-20230718162917873.png" srcset="/img/loading.gif" lazyload alt="image-20230718162917873" /><figcaption aria-hidden="true">image-20230718162917873</figcaption>
+</figure>
+<figure>
+<img src="E:\source\images\转录组分析\image-20230718162939624.png" srcset="/img/loading.gif" lazyload alt="image-20230718162939624" /><figcaption aria-hidden="true">image-20230718162939624</figcaption>
+</figure>
+<p>SRA高通量数据</p>
+<figure>
+<img src="E:\source\images\转录组分析\image-20230718162957364.png" srcset="/img/loading.gif" lazyload alt="image-20230718162957364" /><figcaption aria-hidden="true">image-20230718162957364</figcaption>
+</figure>
+<figure>
+<img src="E:\source\images\转录组分析\image-20230718163108893.png" srcset="/img/loading.gif" lazyload alt="image-20230718163108893" /><figcaption aria-hidden="true">image-20230718163108893</figcaption>
+</figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda install sra-tools<br>prefetch SRR2176381<br></code></pre></td></tr></table></figure>
+<p>批量下载</p>
+<figure>
+<img src="E:\source\images\转录组分析\image-20230718163516734.png" srcset="/img/loading.gif" lazyload alt="image-20230718163516734" /><figcaption aria-hidden="true">image-20230718163516734</figcaption>
+</figure>
+<p>获取所有的编号</p>
+<figure>
+<img src="E:\source\images\转录组分析\image-20230718163603384.png" srcset="/img/loading.gif" lazyload alt="image-20230718163603384" /><figcaption aria-hidden="true">image-20230718163603384</figcaption>
+</figure>
+<ul>
+<li>数据信息表</li>
+</ul>
+<p>每个样本信息</p>
+<p>基因组数据</p>
+<p>基因注释</p>
+<p>蛋白序列</p>
+<p>使用苹果参考基因组：https://github.com/moold/Genome-data-of-Hanfu-apple</p>
+<figure>
+<img src="E:\source\images\转录组分析\image-20230718174600522.png" srcset="/img/loading.gif" lazyload alt="image-20230718174600522" /><figcaption aria-hidden="true">image-20230718174600522</figcaption>
+</figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span>  -r  ~/work/rnaseq-apple-training/RNASeq-ref/ref/Genome-data-of-Hanfu-apple ./data<br><br><br>HFTH1.gene.gff3.gz<br>HFTH1.gene.pep.fa.gz<br>HFTH1.genome.fa<br>gunzip HFTH1.gene.gff3.gz<br>gffread -T -o genes.gtf HFTH1.gene.gff3<br><span class="hljs-built_in">cat</span> Chr*.fa.gz &gt; apple_genome.fa.gz<br>gunzip apple_genome.fa.gz<br><span class="hljs-built_in">rm</span> -r HFTH1.genome.fa<br><span class="hljs-built_in">rm</span> -f HFTH1.gene.pep.fa.gz<br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>比对参考基因组</li>
+</ul>
+<p>理论上测序数据需要做过滤和质控</p>
+<p>1.mapping</p>
+<p>构建参考基因组</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2-build ../ref/genome.fasta ../ref/genome 1&gt;hisat2-build.log 2&gt;&amp;1<br>hisat2-build ./data/apple_genome.fasta  ./data/genome 1&gt;hisat2-build.log 2&gt;&amp;1<br></code></pre></td></tr></table></figure>
+<p>得到</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">hisat2</span> --new-summary -p <span class="hljs-number">10</span> -x  ./data/genome  -U ../  --rna-strandness R <span class="hljs-number">1</span>&gt;BL <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">%s#<span class="hljs-regexp">/home/</span>zhxd<span class="hljs-regexp">/workspace/</span><span class="hljs-number">02</span>.RNA-seq<span class="hljs-regexp">/data/</span>apple_data<span class="hljs-regexp">/clean_data/</span>#home<span class="hljs-regexp">/ubuntu/</span>work<span class="hljs-regexp">/rnaseq-apple-training/</span>RNASeq-ref<span class="hljs-regexp">/data/</span>#g<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2 --new-summary -p 10 -x ../ref/genome -U ../data/BLO_S1_LD1.fq.gz -S BLO_S1_LD1.sam --rna-strandness R 1&gt;BLO_S1_LD1.<span class="hljs-built_in">log</span> 2&gt;&amp;1<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/bioinformatics/">#bioinformatics</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>转录组分析</div>
+      <div>http://example.com/2023/07/18/转录组分析/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Brianyjh</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/12/%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90/" title="进行简单的基因家族分析">
+                        <span class="hidden-mobile">进行简单的基因家族分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Brianyjh</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="website-duration">载入网站运行时间...</span> <script src="/js/duration.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <span><br></span>	
+<span>总访客&nbsp<span id="busuanzi_value_site_uv"></span>&nbsp人 &nbsp</span>
+<span>访问总量&nbsp<span id="busuanzi_value_site_pv"></span>&nbsp次</span> </div>   
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP证912321号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=93021872"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>浙公网安备93021872号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
