@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>安装VMware软件</title>
+    <link href="/2024/01/14/%E5%AE%89%E8%A3%85vmsation/"/>
+    <url>/2024/01/14/%E5%AE%89%E8%A3%85vmsation/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="安装步骤">安装步骤</h3><p>下面是安装VMware workstation的步骤：</p><h4 id="安装界面">（1）安装界面</h4><p><img src="https://s2.loli.net/2023/10/29/BNaGeTMi1AOmQWq.png" /></p><h4 id="用户协议">（2）用户协议</h4><p><img src="https://s2.loli.net/2023/10/29/Rlz9ibqaOJkegDw.png" /></p><h4 id="安装whp">（3）安装WHP</h4><p>安装WHP可以让Hyper-V和VMWarePlayer同时运行<sup id="fnref:1"><a href="#fn:1" rel="footnote"><spanclass="hint--top hint--error hint--medium hint--rounded hint--bounce"aria-label="[喜大普奔！Hyper-V 和 VMWare 终于可以无缝共存、同时运行了！](https://www.jianshu.com/p/c02f776a65cd)">[1]</span></a></sup></p><p><img src="https://s2.loli.net/2023/10/29/hNIqWtdbEC9HjFY.png" /></p><h4 id="添加系统路径">（4）添加系统路径</h4><p>将 VMware Workstation 控制台工具添加到系统 PATH的作用是方便在命令行或终端中直接运行该工具，而无需在其所在文件夹下输入完整的路径<sup id="fnref:2"><a href="#fn:2" rel="footnote"><spanclass="hint--top hint--error hint--medium hint--rounded hint--bounce"aria-label="[VMwarepro16安装完整流程——注意事项全部详解](https://blog.csdn.net/feng8403000/article/details/131816016)">[2]</span></a></sup>。</p><p><img src="https://s2.loli.net/2023/10/29/tnAFJc6ivVNu3eE.png" /></p><h4 id="这里继续">（5）这里继续</h4><p><img src="https://s2.loli.net/2023/10/29/ZPoSwtb3Kk9TpEX.png" /></p><p><img src="https://s2.loli.net/2023/10/29/PpKsWrQb9DXzHlB.png" /></p><p><img src="https://s2.loli.net/2023/10/29/1cxzMthb4VOJnUX.png" /></p><h4 id="等待安装即可">（6）等待安装即可</h4><p><img src="https://s2.loli.net/2023/10/29/EbqN6iOfDkRFCpg.png" /></p><p><img src="https://s2.loli.net/2023/10/29/Ipn2fclYayqLubT.png" /></p><p><img src="https://s2.loli.net/2023/10/29/5i7Pm6JMOKqStp2.png" /></p><h3 id="reference">Reference</h3><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><spanstyle="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><spanstyle="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.jianshu.com/p/c02f776a65cd">喜大普奔！Hyper-V和 VMWare终于可以无缝共存、同时运行了！</a><a href="#fnref:1" rev="footnote">↩︎</a></span></li><li id="fn:2"><spanstyle="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><spanstyle="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blog.csdn.net/feng8403000/article/details/131816016">VMwarepro16安装完整流程——注意事项全部详解</a><a href="#fnref:2" rev="footnote">↩︎</a></span></li><li id="fn:3"><spanstyle="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><spanstyle="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://zhuanlan.zhihu.com/p/636071805">猴子看了也能装，热门虚拟机VMwareWorkstation Pro 17安装激活教程</a><a href="#fnref:3" rev="footnote">↩︎</a></span></li></ol></div></div>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>虚拟机</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>NCBI Genbank使用方法解析</title>
     <link href="/2023/11/12/NCBI%20Genbank%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/"/>
     <url>/2023/11/12/NCBI%20Genbank%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/</url>
