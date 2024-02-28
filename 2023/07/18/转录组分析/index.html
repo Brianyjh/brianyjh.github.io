@@ -16,12 +16,12 @@
   <meta name="author" content="Brianyjh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="DNA的变异可能在RNA的表达上表现出来 先测rna 得到表达数据挖掘三张表 样本信息表 表达矩阵 基因信息表  在植物生物信息挖掘中，特别是在进行RNA测序（RNA-seq）后得到的表达数据，通常会涉及三张表：样本信息表、表达矩阵和基因信息表。这些表格提供了关于样本、表达量和基因的重要信息，对于进一步的分析和解释至关重要。 1.样本信息表： 样本信息表是描述每个样本的属性和特征">
+    <meta name="description" content="转录组分析  为了寻找表型变化背后的分子机制，可能是一个基因，更可能是多个基因组成的相互作用网络共同导致了表型的差异 在DNA层次上也许是SNP、InDel、SV、CNV、甲基化等造成的差异。 在RNA层次上也许是差异表达、可变剪切、修饰等造成的差异。 在蛋白层次上也许是蛋白的丰度差异、折叠方式差异等造成的差异。 也可能是以上这些层次之间相互影响造成的变化 为什么研究RNA层次，一般">
 <meta property="og:type" content="article">
 <meta property="og:title" content="转录组分析">
 <meta property="og:url" content="http://example.com/2023/07/18/%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Brianyjh的私人小站">
-<meta property="og:description" content="DNA的变异可能在RNA的表达上表现出来 先测rna 得到表达数据挖掘三张表 样本信息表 表达矩阵 基因信息表  在植物生物信息挖掘中，特别是在进行RNA测序（RNA-seq）后得到的表达数据，通常会涉及三张表：样本信息表、表达矩阵和基因信息表。这些表格提供了关于样本、表达量和基因的重要信息，对于进一步的分析和解释至关重要。 1.样本信息表： 样本信息表是描述每个样本的属性和特征">
+<meta property="og:description" content="转录组分析  为了寻找表型变化背后的分子机制，可能是一个基因，更可能是多个基因组成的相互作用网络共同导致了表型的差异 在DNA层次上也许是SNP、InDel、SV、CNV、甲基化等造成的差异。 在RNA层次上也许是差异表达、可变剪切、修饰等造成的差异。 在蛋白层次上也许是蛋白的丰度差异、折叠方式差异等造成的差异。 也可能是以上这些层次之间相互影响造成的变化 为什么研究RNA层次，一般">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2023/09/26/wRfYzyIVslqLoQG.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/26/wRcJXSoAaKI7vZg.png">
@@ -30,9 +30,17 @@
 <meta property="og:image" content="https://s2.loli.net/2023/09/26/SPU6ZETwuLYvA42.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/26/soPL3S4uCIarpYy.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/24/4jdkRDLPnIHvpsF.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/27/Y5HSPEnrGBc1Dua.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/27/FM4pBtlxg2WQPSh.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/26/7TRh3nPxFkGbIzV.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/27/axjfnQeBmiwMO2r.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/27/ZzydxwIoaFGklX2.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/27/8opdt2sRfCnNKVX.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/27/rLg7SmZDdhfTqPJ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/27/WbCH7d4arkEyTXi.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/27/wj3CJaoxhnLVtcP.png">
 <meta property="article:published_time" content="2023-07-18T07:48:40.000Z">
-<meta property="article:modified_time" content="2023-09-26T03:22:50.000Z">
+<meta property="article:modified_time" content="2024-02-27T13:38:16.914Z">
 <meta property="article:author" content="Brianyjh">
 <meta property="article:tag" content="bioinformatics">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.9k 字
+          5.8k 字
         
       </span>
     
@@ -239,7 +247,7 @@
         
         
         
-          33 分钟
+          49 分钟
         
       </span>
     
@@ -282,8 +290,15 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>DNA的变异可能在RNA的表达上表现出来</p>
-<p>先测rna</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="转录组分析">转录组分析</h2>
+<h3 id="section"></h3>
+<p>为了寻找表型变化背后的分子机制，可能是一个基因，更可能是多个基因组成的相互作用网络共同导致了表型的差异
+在DNA层次上也许是SNP、InDel、SV、CNV、甲基化等造成的差异。</p>
+<p>在RNA层次上也许是差异表达、可变剪切、修饰等造成的差异。</p>
+<p>在蛋白层次上也许是蛋白的丰度差异、折叠方式差异等造成的差异。</p>
+<p>也可能是以上这些层次之间相互影响造成的变化</p>
+<p>为什么研究RNA层次，一般蛋白上出现差异通常可以从RNA层次上可以看出来。</p>
+<p>DNA的变异也可能在RNA的表达上表现出来</p>
 <p>得到表达数据挖掘三张表</p>
 <p>样本信息表</p>
 <p>表达矩阵</p>
@@ -315,6 +330,7 @@ Ontology，GO）注释等。基因信息表提供了对于表达矩阵中的基�
 <ul>
 <li>比对</li>
 </ul>
+<p>hisat2</p>
 <p>把rna数据比对到参考基因组上</p>
 <ul>
 <li><p>表达定量</p></li>
@@ -339,80 +355,107 @@ Ontology，GO）注释等。基因信息表提供了对于表达矩阵中的基�
 <p>3*4*2</p>
 <p>特征表达分析</p>
 <p>共有和特有表达基因</p>
-<ul>
-<li>测序数据</li>
-</ul>
-<p>寻找数据</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/26/wRfYzyIVslqLoQG.png" srcset="/img/loading.gif" lazyload
-alt="image-20230926111430926" />
-<figcaption aria-hidden="true">image-20230926111430926</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2023/09/26/wRcJXSoAaKI7vZg.png" srcset="/img/loading.gif" lazyload
-alt="image-20230812215414860" />
-<figcaption aria-hidden="true">image-20230812215414860</figcaption>
-</figure>
-<figure>
-<img
-src="/C:/Users/brianyang/AppData/Roaming/Typora/typora-user-images/image-20230926111621062.png" srcset="/img/loading.gif" lazyload
-alt="image-20230926111621062" />
-<figcaption aria-hidden="true">image-20230926111621062</figcaption>
-</figure>
+<h3 id="研究背景">01 研究背景</h3>
+<p>为了解释两种苹果果皮颜色的差异（一红一黄），已有研究表明和花青素的合成与积累有关。</p>
+<p>目前，花青素的合成和积累受到三个方面的影响。在合成方面，苹果中的花青素合成酶大多与积累呈正相关，而葡萄中只有少数酶与积累相关。在调控方面，转录因子bHLH、WD40和MYB对花青素的调控至关重要，其中MYB因子发挥着关键作用。在运输和存储方面，花青素从细胞质转运到液泡中，液泡中的存储则由谷胱甘肽S转移酶（GSTS）和多药和有毒化合物外排转运蛋白（MATES）负责。</p>
+<p>这两种苹果在花青素合成与积累有什么差异？能否找到差异的基因，差异基因的表达又是怎么样造成的（DNA变异？表观修饰？转录调控？），能否找到影响差异的分子机制？</p>
+<p>这篇文章的样品与测序情况：</p>
+<blockquote>
+<p>5年生 苹果树 3 个生物学重复，2个品种，4个时期（S1: 7月16日; S2:
+8月7日; S3: 8月26日; S4: 9月14日），共 24 个样本。 模式: Single-end
+读长: 101 bp 测序仪: Hiseq 2000</p>
+</blockquote>
+<h3 id="分析案例">02 分析案例</h3>
+<h4 id="寻找测序数据">（1）寻找测序数据</h4>
+<p><img src="https://s2.loli.net/2023/09/26/wRfYzyIVslqLoQG.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://s2.loli.net/2023/09/26/wRcJXSoAaKI7vZg.png" srcset="/img/loading.gif" lazyload /></p>
 <p>SRA高通量数据</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/26/VIy4FMTunjKPBeb.png" srcset="/img/loading.gif" lazyload
-alt="image-20230813144535634" />
-<figcaption aria-hidden="true">image-20230813144535634</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2023/09/26/uIFMd94wOCDSZAh.png" srcset="/img/loading.gif" lazyload
-alt="image-20230813144641937" />
-<figcaption aria-hidden="true">image-20230813144641937</figcaption>
-</figure>
+<p><img src="https://s2.loli.net/2023/09/26/VIy4FMTunjKPBeb.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://s2.loli.net/2023/09/26/uIFMd94wOCDSZAh.png" srcset="/img/loading.gif" lazyload /></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda install sra-tools<br>prefetch SRR2176381<br></code></pre></td></tr></table></figure>
-<p>批量下载</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/26/SPU6ZETwuLYvA42.png" srcset="/img/loading.gif" lazyload
-alt="image-20230813144818976" />
-<figcaption aria-hidden="true">image-20230813144818976</figcaption>
-</figure>
+<p><img src="https://s2.loli.net/2023/09/26/SPU6ZETwuLYvA42.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="批量下载">（2）批量下载</h4>
 <p>获取所有的编号</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/26/soPL3S4uCIarpYy.png" srcset="/img/loading.gif" lazyload
-alt="image-20230813150001872" />
-<figcaption aria-hidden="true">image-20230813150001872</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2023/09/24/4jdkRDLPnIHvpsF.png" srcset="/img/loading.gif" lazyload
-alt="image-20230924201412588" />
-<figcaption aria-hidden="true">image-20230924201412588</figcaption>
-</figure>
-<ul>
-<li>数据信息表</li>
-</ul>
-<p>每个样本信息</p>
-<p>基因组数据</p>
-<p>基因注释</p>
-<p>蛋白序列</p>
+<p><img src="https://s2.loli.net/2023/09/26/soPL3S4uCIarpYy.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://s2.loli.net/2023/09/24/4jdkRDLPnIHvpsF.png" srcset="/img/loading.gif" lazyload /></p>
+<p>得到<code>SRR_Acc_List.txt</code>，里面包含了24个RNAseq的原始数据文件，增加批量处理的程序，下载这些文件</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">awk</span> <span class="hljs-string">&#x27;&#123;print &quot;prefetch &quot; <span class="hljs-variable">$1</span>&#125;&#x27;</span> SRR_Acc_List.txt &gt; download_SRR.sh<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>prefetch SRRXXXXX</p>
+<p>#下载NCBI里面的项目：SRRXXXXX</p>
+</blockquote>
+<p>随后批量进行下载 修改一下samples.txt</p>
+<p><img src="https://s2.loli.net/2024/02/27/Y5HSPEnrGBc1Dua.png" srcset="/img/loading.gif" lazyload /></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">:%s<span class="hljs-comment">#/home/zhxd/workspace/02.RNA-seq/apple_data/clean_data#/home/brianyjh/rnaseq-apple-training/RNASeq-ref#g</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>:%s/{寻找的片段}/{替换的片段}/g</p>
+<p>这里的<code>/</code>可以替换成<code>#</code>，<code>g</code>表示全部都会被替换</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2024/02/27/FM4pBtlxg2WQPSh.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="准备参考基因组">（3）准备参考基因组</h4>
+<p>参考基因组要准备三个文件：</p>
+<blockquote>
+<ol type="1">
+<li>基因组序列（<code>genome.fasta</code>）</li>
+<li>基因注释（<code>genes.gtf</code>）</li>
+<li>蛋白序列（<code>proteins.fasta</code>）</li>
+</ol>
+</blockquote>
 <p>使用苹果参考基因组：https://github.com/moold/Genome-data-of-Hanfu-apple</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/26/7TRh3nPxFkGbIzV.png" srcset="/img/loading.gif" lazyload
-alt="image-20230813151146408" />
-<figcaption aria-hidden="true">image-20230813151146408</figcaption>
-</figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span>  -r  ~/work/rnaseq-apple-training/RNASeq-ref/ref/Genome-data-of-Hanfu-apple ./data<br><br><br>HFTH1.gene.gff3.gz<br>HFTH1.gene.pep.fa.gz<br>HFTH1.genome.fa<br>gunzip HFTH1.gene.gff3.gz<br>gffread -T -o genes.gtf HFTH1.gene.gff3<br><span class="hljs-built_in">cat</span> Chr*.fa.gz &gt; apple_genome.fa.gz<br>gunzip apple_genome.fa.gz<br><span class="hljs-built_in">rm</span> -r HFTH1.genome.fa<br><span class="hljs-built_in">rm</span> -f HFTH1.gene.pep.fa.gz<br><br></code></pre></td></tr></table></figure>
-<ul>
-<li>比对参考基因组</li>
-</ul>
-<p>理论上测序数据需要做过滤和质控</p>
-<p>1.mapping</p>
-<p>构建参考基因组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2-build ../ref/genome.fasta ../ref/genome 1&gt;hisat2-build.log 2&gt;&amp;1<br>hisat2-build ./data/apple_genome.fasta  ./data/genome 1&gt;hisat2-build.log 2&gt;&amp;1<br></code></pre></td></tr></table></figure>
-<p>得到</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">hisat2</span> --new-summary -p <span class="hljs-number">10</span> -x  ./data/genome  -U ../  --rna-strandness R <span class="hljs-number">1</span>&gt;BL <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">%s#<span class="hljs-regexp">/home/</span>zhxd<span class="hljs-regexp">/workspace/</span><span class="hljs-number">02</span>.RNA-seq<span class="hljs-regexp">/data/</span>apple_data<span class="hljs-regexp">/clean_data/</span>#home<span class="hljs-regexp">/ubuntu/</span>work<span class="hljs-regexp">/rnaseq-apple-training/</span>RNASeq-ref<span class="hljs-regexp">/data/</span>#g<br></code></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/09/26/7TRh3nPxFkGbIzV.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://s2.loli.net/2024/02/27/axjfnQeBmiwMO2r.png" srcset="/img/loading.gif" lazyload /></p>
+<p><em>圈中的文件依次是基因组序列文件、基因注释文件（gff文件格式）和蛋白注释文件</em></p>
+<p>基因组序列文件包含了苹果染色体的染色体序列，需要进行合并
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> Chr*.fa.gz &gt; apple_genome.fa.gz<br>gunzip apple_genome.fa.gz<br></code></pre></td></tr></table></figure></p>
+<p>gff文件通过<code>gffread</code>转化成<code>gtf</code>文件
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gffread -T -o genes.gtf HFTH1.gene.gff3<br></code></pre></td></tr></table></figure></p>
+<h4 id="比对参考基因组">（4）比对参考基因组</h4>
+<p>获取参考基因组后，下一步将RNA-Seq结果比对到参考基因组。</p>
+<p>**理论上RNA-Seq的测序数据需要做过滤和质控*</p>
+<h5 id="mapping">4.1 mapping</h5>
+<p>构建参考基因组的index</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2-build ../ref/genome.fasta ../ref/genome 1&gt;hisat2-build.log 2&gt;&amp;1<br></code></pre></td></tr></table></figure>
+<p>这个程序用我的虚拟机跑了得有30分钟，得到index：</p>
+<p><img src="https://s2.loli.net/2024/02/27/ZzydxwIoaFGklX2.png" srcset="/img/loading.gif" lazyload /></p>
+<h5 id="比对">4.2 比对</h5>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2 --new-summary -p 10 -x ../ref/genome -U ../data/BLO_S1_LD1.fq.gz -S BLO_S1_LD1.sam --rna-strandness R 1&gt;BLO_S1_LD1.<span class="hljs-built_in">log</span> 2&gt;&amp;1<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>--new-summary 使用新的日志格式 -p {线程数} -x {刚刚创建的index的位置}
+-U {测序文件，fastq格式} -S 输出文件，sam格式 --rna-strandness {
+R、dUTP、RF} 普通文库</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2 --new-summary -p 10 -x ../ref/genome -U ../data/BLO_S1_LD1.fq.gz -S BLO_S1_LD1.sam --rna-strandness R 1&gt;BLO_S1_LD1.<span class="hljs-built_in">log</span> 2&gt;&amp;1<br></code></pre></td></tr></table></figure>
+<p>这里进行批处理：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">awk <span class="hljs-string">&#x27;&#123;print &quot;hisat2 --new-summary -p 10 -x ../ref/genome -U ../data/&quot;$2&quot;.fq.gz -S &quot;$2&quot;.sam --rna-strandness R 1&gt;&quot;$2&quot;.log 2&gt;&amp;1&quot;&#125;&#x27;</span> ../data/samples.txt &gt; step2_batch_processing.sh<br></code></pre></td></tr></table></figure>
+<p>如果要并行运行程序，需要在每一个程序后面加一个<code>&amp;</code>，将每一个测序文件进行运行后得到24个比对的文件及相应的日志文件</p>
+<figure>
+<img src="https://s2.loli.net/2024/02/27/8opdt2sRfCnNKVX.png" srcset="/img/loading.gif" lazyload
+alt="image-20240227200917409" />
+<figcaption aria-hidden="true">image-20240227200917409</figcaption>
+</figure>
+<p>打开其中一个日志文件<code>BLO_S1_LD1.log</code>,可以看到比对率为76.38%
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">HISAT2 summary stats:<br>        Total reads: 10000000<br>                Aligned 0 time: 2362122 (23.62%)<br>                Aligned 1 time: 7078521 (70.79%)<br>                Aligned &gt;1 <span class="hljs-built_in">times</span>: 559357 (5.59%)<br>        Overall alignment rate: 76.38%<br></code></pre></td></tr></table></figure></p>
+<p>下一步，将sam文件转换成bam文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">samtools <span class="hljs-built_in">sort</span> -o BLO_S1_LD1.bam BLO_S1_LD1.sam <span class="hljs-comment">#将sam文件转换成bam文件</span><br>awk <span class="hljs-string">&#x27;&#123;print &quot;samtools sort -o &quot;$2&quot;.bam &quot;$2&quot;.sam&quot;&#125;&#x27;</span> ../data/samples.txt &gt; step3_batch_processing.sh <span class="hljs-comment">#批处理</span><br><span class="hljs-built_in">nohup</span> sh step3_batch_processing.sh &amp; <span class="hljs-comment">#后台运行</span><br></code></pre></td></tr></table></figure>
+<p>转成bam文件后，生成对应的index文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">samtools index BLO_S1_LD1.bam <span class="hljs-comment">#生成对应的index文件</span><br>awk <span class="hljs-string">&#x27;&#123;print &quot;samtools index  &quot;$2&quot;.bam &quot;&#125;&#x27;</span> ../data/samples.txt &gt; step4_batch_processing.sh <span class="hljs-comment">#批处理</span><br><span class="hljs-built_in">nohup</span> sh step4_batch_processing.sh &amp; <span class="hljs-comment">#后台运行</span><br></code></pre></td></tr></table></figure></p>
+<p>比对完成后，打开IGV软件，通过load genome from file
+放入苹果的基因组文件</p>
+<figure>
+<img src="https://s2.loli.net/2024/02/27/rLg7SmZDdhfTqPJ.png" srcset="/img/loading.gif" lazyload
+alt="image-20240227205653042" />
+<figcaption aria-hidden="true">image-20240227205653042</figcaption>
+</figure>
+<p>通过load from file导入gtf文件，同样可以导入bam文件查看比对结果</p>
+<figure>
+<img src="https://s2.loli.net/2024/02/27/WbCH7d4arkEyTXi.png" srcset="/img/loading.gif" lazyload
+alt="image-20240227210619290" />
+<figcaption aria-hidden="true">image-20240227210619290</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2024/02/27/wj3CJaoxhnLVtcP.png" srcset="/img/loading.gif" lazyload
+alt="image-20240227211029483" />
+<figcaption aria-hidden="true">image-20240227211029483</figcaption>
+</figure>
 
                 
               </div>

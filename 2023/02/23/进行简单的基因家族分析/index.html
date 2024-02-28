@@ -16,15 +16,17 @@
   <meta name="author" content="Brianyjh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="进行简单的基因家族分析 荞麦、大豆、拟南芥的基因家族分析 芝麻油脂含量高， 某一个基因控制油脂合成 大豆、拟南芥 FAD4-like合成油脂 拟南芥3个拷贝，大豆2个拷贝，芝麻5个拷贝 是不是因为芝麻中的拷贝数目多一点造成了差异？ 创建文件夹 1234567891011mkdir FAD4-likeless -S cp &#x2F;home&#x2F;ubuntu&#x2F;work&#x2F;rnaseq-apple">
+    <meta name="description" content="简单blast比对：FAD4-like基因在大豆、拟南芥和芝麻中的比对与进化关系研究 01 研究背景 芝麻油脂含量高，应该存在某一基因控制其油脂合成，将大豆（Glycine max）、拟南芥（Arabidopsis thaliana）、芝麻（Sesamum indicum）的序列进行比对，寻找芝麻中与油脂合成相关的序列，FAD4-like基因在油脂合成通路中比较重要，因此本次研究芝麻、大豆">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进行简单的基因家族分析">
-<meta property="og:url" content="http://example.com/2023/07/12/%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90/index.html">
+<meta property="og:title" content="简单blast比对：FAD4-like基因在大豆、拟南芥和芝麻中的比对">
+<meta property="og:url" content="http://example.com/2023/02/23/%E8%BF%9B%E8%A1%8C%E7%AE%80%E5%8D%95%E7%9A%84%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Brianyjh的私人小站">
-<meta property="og:description" content="进行简单的基因家族分析 荞麦、大豆、拟南芥的基因家族分析 芝麻油脂含量高， 某一个基因控制油脂合成 大豆、拟南芥 FAD4-like合成油脂 拟南芥3个拷贝，大豆2个拷贝，芝麻5个拷贝 是不是因为芝麻中的拷贝数目多一点造成了差异？ 创建文件夹 1234567891011mkdir FAD4-likeless -S cp &#x2F;home&#x2F;ubuntu&#x2F;work&#x2F;rnaseq-apple">
+<meta property="og:description" content="简单blast比对：FAD4-like基因在大豆、拟南芥和芝麻中的比对与进化关系研究 01 研究背景 芝麻油脂含量高，应该存在某一基因控制其油脂合成，将大豆（Glycine max）、拟南芥（Arabidopsis thaliana）、芝麻（Sesamum indicum）的序列进行比对，寻找芝麻中与油脂合成相关的序列，FAD4-like基因在油脂合成通路中比较重要，因此本次研究芝麻、大豆">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/02/25/wf47tq2YFy9JSZ5.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/28/7un5y6VmvDI8fYM.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/28/OhGs8IXKlubNLHy.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/25/aAGlL4geDQVO3bc.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/28/fHMhqBWSaK2xjst.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/28/EfLrHTSXC1qngZy.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/28/NK97Hk4gsZ2UaQC.png">
@@ -35,18 +37,16 @@
 <meta property="og:image" content="https://s2.loli.net/2023/09/28/Vulka3HewBpZUyc.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/28/ix3FdLevyP5swGI.png">
 <meta property="og:image" content="https://s2.loli.net/2023/09/28/TNaJq4QDPcbSR7n.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/28/SjvRBVOJt8gs5eC.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/28/hdxcejuWKlNbL49.png">
-<meta property="article:published_time" content="2023-07-12T07:48:40.000Z">
-<meta property="article:modified_time" content="2023-11-06T07:54:37.909Z">
+<meta property="article:published_time" content="2023-02-23T07:48:40.000Z">
+<meta property="article:modified_time" content="2024-02-25T07:38:54.489Z">
 <meta property="article:author" content="Brianyjh">
 <meta property="article:tag" content="bioinformatics">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2023/09/28/7un5y6VmvDI8fYM.png">
+<meta name="twitter:image" content="https://s2.loli.net/2024/02/25/wf47tq2YFy9JSZ5.png">
   
   
   
-  <title>进行简单的基因家族分析 - Brianyjh的私人小站</title>
+  <title>简单blast比对：FAD4-like基因在大豆、拟南芥和芝麻中的比对 - Brianyjh的私人小站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +211,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="进行简单的基因家族分析"></span>
+            <span id="subtitle" data-typed-text="简单blast比对：FAD4-like基因在大豆、拟南芥和芝麻中的比对"></span>
           
         </div>
 
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-12 15:48" pubdate>
-          2023年7月12日 下午
+        <time datetime="2023-02-23 15:48" pubdate>
+          2023年2月23日 下午
         </time>
       </span>
     
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.3k 字
+          5.6k 字
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          36 分钟
+          47 分钟
         
       </span>
     
@@ -283,127 +283,94 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">进行简单的基因家族分析</h1>
+            <h1 style="display: none">简单blast比对：FAD4-like基因在大豆、拟南芥和芝麻中的比对</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>进行简单的基因家族分析</p>
-<p>荞麦、大豆、拟南芥的基因家族分析</p>
-<p>芝麻油脂含量高，</p>
-<p>某一个基因控制油脂合成</p>
-<p>大豆、拟南芥</p>
-<p>FAD4-like合成油脂</p>
-<p>拟南芥3个拷贝，大豆2个拷贝，芝麻5个拷贝</p>
-<p>是不是因为芝麻中的拷贝数目多一点造成了差异？</p>
-<p>创建文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> FAD4-like<br>less -S <br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/atha.fasta FAD4-like/atha.fasta<br>less -S atha.fasta <span class="hljs-comment">#拟南芥的所有基因</span><br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/atha_FAD4.fa atha_FAD4.fa<br>less -S atha_FAD4.fa <span class="hljs-comment">#拟南芥的FAD4基因</span><br><span class="hljs-built_in">cp</span> atha_FAD4.fa  query.fasta<br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/sind.fasta ./ <span class="hljs-comment">#</span><br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/gmax.fasta ./<br><span class="hljs-built_in">cat</span> atha.fasta gmax.fasta sind.fasta &gt;all.fasta<br><br></code></pre></td></tr></table></figure>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2
+id="简单blast比对fad4-like基因在大豆拟南芥和芝麻中的比对与进化关系研究">简单blast比对：FAD4-like基因在大豆、拟南芥和芝麻中的比对与进化关系研究</h2>
+<h3 id="研究背景">01 研究背景</h3>
+<p>芝麻油脂含量高，应该存在某一基因控制其油脂合成，将大豆（<em>Glycine
+max</em>）、拟南芥（<em>Arabidopsis thaliana</em>）、芝麻（<em>Sesamum
+indicum</em>）的序列进行比对，寻找芝麻中与油脂合成相关的序列，FAD4-like基因在油脂合成通路中比较重要，因此本次研究芝麻、大豆、拟南芥中FAD4-like基因的进化关系。</p>
+<h3 id="分析">02 分析</h3>
+<h4 id="工作目录">（1）工作目录</h4>
+<p>创建文件夹，并把资料存到工作文件夹<code>FAD4-like</code>中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> FAD4-like<br>less -S <br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/atha.fasta FAD4-like/atha.fasta<br>less -S atha.fasta <span class="hljs-comment">#拟南芥的所有基因</span><br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/atha_FAD4.fa atha_FAD4.fa<br>less -S atha_FAD4.fa <span class="hljs-comment">#拟南芥的FAD4基因</span><br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/sind.fasta ./ <span class="hljs-comment">#芝麻所有基因</span><br><span class="hljs-built_in">cp</span> /home/ubuntu/work/rnaseq-apple-training/linux-basic/DATA/gmax.fasta ./ <span class="hljs-comment">#大豆基因组</span><br><span class="hljs-built_in">cat</span> atha.fasta gmax.fasta sind.fasta &gt;all.fasta <span class="hljs-comment">#整合拟南芥、大豆、芝麻的序列一起</span><br><br></code></pre></td></tr></table></figure>
+<p>文件夹<code>FAD4-like</code>有以下文件：</p>
+<p><img src="https://s2.loli.net/2024/02/25/wf47tq2YFy9JSZ5.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="参考基因序列">（2）参考基因序列</h4>
+<p>从<a
+target="_blank" rel="noopener" href="http://aralip.plantbiology.msu.edu/pathways/pathways">油脂基因数据库</a>中寻找拟南芥FAD4-like基因（因为拟南芥被研究得比较透彻）</p>
 <p>拟南芥FAD4-like基因有三条，At1g62190、At2g22890、At4g27030</p>
-<p>找到这三个基因的蛋白序列</p>
+<p>将蛋白序列存放在 <code>atha_FAD4.fa</code> 中作为 拟南芥query
+蛋白序列</p>
 <figure>
 <img src="https://s2.loli.net/2023/09/28/7un5y6VmvDI8fYM.png" srcset="/img/loading.gif" lazyload
-alt="image-20230714201156375" />
-<figcaption aria-hidden="true">image-20230714201156375</figcaption>
+alt="拟南芥query序列" />
+<figcaption aria-hidden="true">拟南芥query序列</figcaption>
 </figure>
-<p>如果看俩种基因是否含有FAD4基因家族，找拟南芥的三条基因，看看大豆里面有没有对应的基因，常见以下方法：</p>
-<p>一个是基于blast比对，一个是基于结构域，常常二者结合</p>
-<p>这里仅仅使用blast将拟南芥的FAD4基因家族分别与大豆和结构域做比对</p>
-<p>blast数据库构建</p>
-<ul>
-<li>首先构建blast数据库</li>
-</ul>
+<p>查看拟南芥中3条FAD4-like基因蛋白序列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs base">(base) brianyjh@debian:~/rnaseq_data/rnaseq-apple-training/FAD4-like$ cat atha_FAD4.fa<br>&gt;atha|AT1G62190.1<br>MAVSFQTKNPLRPITNIPRSYGPTRVRVTCSVTTTNPQLNHENLVVEKRLVNPPLSKNNDPTLQSTWTHRLWVAAGSTTIFASFAKSIIGGFGSHLWLQPALACYAGYVFADLGSGVYHWAIDNYGGASTPIVGAQLEASQGHHKYPWTITKRQFANNSYTIARAITFIVLPLNLAINNPLFHSFVSTFAFCILLSQQFHAWAHGTKSKLPPLVMALQDMGLLVSRKDHPGHHQAPYNSNYCVVSGAWNKVLDESNLFKALEMALFFQFGVRPNSWNEPNSDWTEETETNFFTKI<br>&gt;atha|AT2G22890.1<br>MATSLQTKYTLNPITNNIPRSHRPSFLRVTSTTNSQPNHEMKLVVEQRLVNPPLSNDPTLQSTWTHRLWVAAGCTTVFVSFSKSIIGAFGSHLWLEPSLAGFAGYILADLGSGVYHWATDNYGDESTPLVGIHIEDSQDHHKCPWTITKRQFANNLHFMARGTTLIVLPLDLAFDDHVVHGFVSMFAFCVLFCQLFHAWAHGTKSKLPPLVVGLQDIGLLVSRIHHMNHHRAPYNNNYCVVSGVWNKVLDESNVFKAMEMVLYIQLGVRPRSWTEPNYE<br>&gt;atha|AT4G27030.1<br>MAVSLPTKYPLRPITNIPKSHRPSLLRVRVTCSVTTTKPQPNREKLLVEQRTVNLPLSNDQSLQSTKPRPNREKLVVEQRLASPPLSNDPTLKSTWTHRLWVAAGCTTLFVSLAKSVIGGFDSHLCLEPALAGYAGYILADLGSGVYHWAIDNYGDESTPVVGTQIEAFQGHHKWPWTITRRQFANNLHALAQVITFTVLPLDLAFNDPVFHGFVCTFAFCILFSQQFHAWAHGTKSKLPPLVVALQDMGLLVSRRQHAEHHRAPYNNNYCIVSGAWNNVLDESKVFEALEMVFYFQLGVRPRSWSEPNSDWIEETEISNNQA<br><br></code></pre></td></tr></table></figure>
+<p><em>注：这里的序列id的写法：<code>AT4G27030.1</code>中AT4G27030是基因id，“.1”是转录本</em></p>
+<p>此时已有拟南芥FAD4-like基因，如果从大豆或芝麻中找到对应相似的基因，常见两种方法：</p>
+<p>一个是基于blast比对，一个是基于结构域，常常二者结合比较严谨</p>
+<p>这里使用blast比对将拟南芥的FAD4基因家族分别与大豆和芝麻中做比对，寻找匹配度比较高的序列</p>
+<h4 id="blast数据库构建">（3）blast数据库构建</h4>
+<p>1.首先构建blast数据库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">makeblastdb -dbtype prot  -<span class="hljs-keyword">in</span> all.fasta -out all<br></code></pre></td></tr></table></figure>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/OhGs8IXKlubNLHy.png" srcset="/img/loading.gif" lazyload
-alt="image-20230714204748889" />
-<figcaption aria-hidden="true">image-20230714204748889</figcaption>
-</figure>
-<ul>
-<li>blast比对</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">blastp -query query.fasta -db all -out blast.out -evalue 1e-10 -outfmt 7<br></code></pre></td></tr></table></figure>
-<p>局部比对，</p>
+<blockquote>
+<p><code>-dbtype</code> 数据类型，核酸或者蛋白prot</p>
+</blockquote>
+<p>这里<code>all.fasta</code>也包含拟南芥序列，已经验证后续blast比对的参数是正确的。</p>
+<p><img src="https://s2.loli.net/2023/09/28/OhGs8IXKlubNLHy.png" srcset="/img/loading.gif" lazyload /></p>
+<p>得到结果，生成一些数据库文件</p>
+<p><img src="https://s2.loli.net/2024/02/25/aAGlL4geDQVO3bc.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="blast比对">（4）blast比对</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">blastp -query atha_FAD4.fa -db all -out blast.out -evalue 1e-20 -outfmt 7<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>-query</code> 输入数据</p>
+<p><code>-db</code> 把刚才生成的数据库名称写上（这里是all</p>
+<p><code>-evalue</code> 把e-value设置成<span
+class="math inline">\(1^{-10}\)</span></p>
+<p><code>-outfmt</code> 7 = Tabular with comment lines,
+带注释信息的表格</p>
+</blockquote>
+<p>查看比对结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">less -S blast.out<br></code></pre></td></tr></table></figure>
+<p>结果：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># Database: all</span><br><span class="hljs-comment"># Fields: query acc., subject acc., % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score</span><br><span class="hljs-comment"># 10 hits found</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        atha|AT1G62190.<span class="hljs-number">1</span>        <span class="hljs-number">100</span>.<span class="hljs-number">000</span> <span class="hljs-number">295</span>     <span class="hljs-number">0</span>       <span class="hljs-number">0</span>       <span class="hljs-number">1</span>       <span class="hljs-number">295</span>     <span class="hljs-number">1</span>       <span class="hljs-number">295</span>     <span class="hljs-number">0</span>.<span class="hljs-number">0</span>     <span class="hljs-number">613</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        atha|AT4G27030.<span class="hljs-number">1</span>        <span class="hljs-number">68</span>.<span class="hljs-number">770</span>  <span class="hljs-number">317</span>     <span class="hljs-number">70</span>      <span class="hljs-number">2</span>       <span class="hljs-number">1</span>       <span class="hljs-number">288</span>     <span class="hljs-number">1</span>       <span class="hljs-number">317</span>     <span class="hljs-number">1</span>.<span class="hljs-number">82</span>e-<span class="hljs-number">160</span>       <span class="hljs-number">451</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        atha|AT2G22890.<span class="hljs-number">1</span>        <span class="hljs-number">70</span>.<span class="hljs-number">775</span>  <span class="hljs-number">284</span>     <span class="hljs-number">76</span>      <span class="hljs-number">4</span>       <span class="hljs-number">1</span>       <span class="hljs-number">282</span>     <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">2</span>.<span class="hljs-number">33</span>e-<span class="hljs-number">144</span>       <span class="hljs-number">408</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        gmax|KRG98807   <span class="hljs-number">54</span>.<span class="hljs-number">861</span>  <span class="hljs-number">288</span>     <span class="hljs-number">121</span>     <span class="hljs-number">1</span>       <span class="hljs-number">11</span>      <span class="hljs-number">289</span>     <span class="hljs-number">15</span>      <span class="hljs-number">302</span>     <span class="hljs-number">2</span>.<span class="hljs-number">15</span>e-<span class="hljs-number">113</span>       <span class="hljs-number">331</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        gmax|KRH46136   <span class="hljs-number">55</span>.<span class="hljs-number">160</span>  <span class="hljs-number">281</span>     <span class="hljs-number">106</span>     <span class="hljs-number">3</span>       <span class="hljs-number">27</span>      <span class="hljs-number">289</span>     <span class="hljs-number">28</span>      <span class="hljs-number">306</span>     <span class="hljs-number">2</span>.<span class="hljs-number">10</span>e-<span class="hljs-number">111</span>       <span class="hljs-number">326</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1014454        <span class="hljs-number">50</span>.<span class="hljs-number">336</span>  <span class="hljs-number">298</span>     <span class="hljs-number">120</span>     <span class="hljs-number">4</span>       <span class="hljs-number">1</span>       <span class="hljs-number">290</span>     <span class="hljs-number">1</span>       <span class="hljs-number">278</span>     <span class="hljs-number">6</span>.<span class="hljs-number">80</span>e-<span class="hljs-number">102</span>       <span class="hljs-number">301</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1005002        <span class="hljs-number">47</span>.<span class="hljs-number">737</span>  <span class="hljs-number">243</span>     <span class="hljs-number">122</span>     <span class="hljs-number">1</span>       <span class="hljs-number">51</span>      <span class="hljs-number">288</span>     <span class="hljs-number">10</span>      <span class="hljs-number">252</span>     <span class="hljs-number">1</span>.<span class="hljs-number">26</span>e-<span class="hljs-number">79</span>        <span class="hljs-number">243</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1005003        <span class="hljs-number">51</span>.<span class="hljs-number">598</span>  <span class="hljs-number">219</span>     <span class="hljs-number">105</span>     <span class="hljs-number">1</span>       <span class="hljs-number">65</span>      <span class="hljs-number">282</span>     <span class="hljs-number">26</span>      <span class="hljs-number">244</span>     <span class="hljs-number">1</span>.<span class="hljs-number">33</span>e-<span class="hljs-number">76</span>        <span class="hljs-number">235</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1004729        <span class="hljs-number">42</span>.<span class="hljs-number">060</span>  <span class="hljs-number">233</span>     <span class="hljs-number">104</span>     <span class="hljs-number">2</span>       <span class="hljs-number">56</span>      <span class="hljs-number">283</span>     <span class="hljs-number">16</span>      <span class="hljs-number">222</span>     <span class="hljs-number">1</span>.<span class="hljs-number">56</span>e-<span class="hljs-number">57</span>        <span class="hljs-number">186</span><br><span class="hljs-attribute">atha</span>|AT1G62190.<span class="hljs-number">1</span>        sind|SIN_1005004        <span class="hljs-number">47</span>.<span class="hljs-number">794</span>  <span class="hljs-number">136</span>     <span class="hljs-number">70</span>      <span class="hljs-number">1</span>       <span class="hljs-number">147</span>     <span class="hljs-number">282</span>     <span class="hljs-number">74</span>      <span class="hljs-number">208</span>     <span class="hljs-number">2</span>.<span class="hljs-number">89</span>e-<span class="hljs-number">35</span>        <span class="hljs-number">127</span><br><span class="hljs-comment"># BLASTP 2.5.0+</span><br><span class="hljs-comment"># Query: atha|AT2G22890.1</span><br><span class="hljs-comment"># Database: all</span><br><span class="hljs-comment"># Fields: query acc., subject acc., % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score</span><br><span class="hljs-comment"># 10 hits found</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        atha|AT2G22890.<span class="hljs-number">1</span>        <span class="hljs-number">100</span>.<span class="hljs-number">000</span> <span class="hljs-number">279</span>     <span class="hljs-number">0</span>       <span class="hljs-number">0</span>       <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">0</span>.<span class="hljs-number">0</span>     <span class="hljs-number">582</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        atha|AT4G27030.<span class="hljs-number">1</span>        <span class="hljs-number">68</span>.<span class="hljs-number">269</span>  <span class="hljs-number">312</span>     <span class="hljs-number">65</span>      <span class="hljs-number">3</span>       <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>       <span class="hljs-number">311</span>     <span class="hljs-number">9</span>.<span class="hljs-number">74</span>e-<span class="hljs-number">152</span>       <span class="hljs-number">428</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        atha|AT1G62190.<span class="hljs-number">1</span>        <span class="hljs-number">70</span>.<span class="hljs-number">775</span>  <span class="hljs-number">284</span>     <span class="hljs-number">76</span>      <span class="hljs-number">4</span>       <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>       <span class="hljs-number">282</span>     <span class="hljs-number">2</span>.<span class="hljs-number">20</span>e-<span class="hljs-number">144</span>       <span class="hljs-number">408</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        gmax|KRG98807   <span class="hljs-number">59</span>.<span class="hljs-number">925</span>  <span class="hljs-number">267</span>     <span class="hljs-number">96</span>      <span class="hljs-number">2</span>       <span class="hljs-number">24</span>      <span class="hljs-number">279</span>     <span class="hljs-number">29</span>      <span class="hljs-number">295</span>     <span class="hljs-number">5</span>.<span class="hljs-number">88</span>e-<span class="hljs-number">113</span>       <span class="hljs-number">329</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        gmax|KRH46136   <span class="hljs-number">56</span>.<span class="hljs-number">000</span>  <span class="hljs-number">300</span>     <span class="hljs-number">110</span>     <span class="hljs-number">4</span>       <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>       <span class="hljs-number">299</span>     <span class="hljs-number">3</span>.<span class="hljs-number">70</span>e-<span class="hljs-number">112</span>       <span class="hljs-number">327</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1014454        <span class="hljs-number">56</span>.<span class="hljs-number">627</span>  <span class="hljs-number">249</span>     <span class="hljs-number">84</span>      <span class="hljs-number">3</span>       <span class="hljs-number">36</span>      <span class="hljs-number">279</span>     <span class="hljs-number">41</span>      <span class="hljs-number">270</span>     <span class="hljs-number">3</span>.<span class="hljs-number">24</span>e-<span class="hljs-number">97</span>        <span class="hljs-number">288</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1005002        <span class="hljs-number">49</span>.<span class="hljs-number">784</span>  <span class="hljs-number">231</span>     <span class="hljs-number">111</span>     <span class="hljs-number">2</span>       <span class="hljs-number">54</span>      <span class="hljs-number">279</span>     <span class="hljs-number">16</span>      <span class="hljs-number">246</span>     <span class="hljs-number">1</span>.<span class="hljs-number">17</span>e-<span class="hljs-number">75</span>        <span class="hljs-number">232</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1005003        <span class="hljs-number">48</span>.<span class="hljs-number">148</span>  <span class="hljs-number">216</span>     <span class="hljs-number">111</span>     <span class="hljs-number">1</span>       <span class="hljs-number">62</span>      <span class="hljs-number">276</span>     <span class="hljs-number">26</span>      <span class="hljs-number">241</span>     <span class="hljs-number">2</span>.<span class="hljs-number">15</span>e-<span class="hljs-number">71</span>        <span class="hljs-number">221</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1004729        <span class="hljs-number">40</span>.<span class="hljs-number">179</span>  <span class="hljs-number">224</span>     <span class="hljs-number">103</span>     <span class="hljs-number">3</span>       <span class="hljs-number">61</span>      <span class="hljs-number">279</span>     <span class="hljs-number">24</span>      <span class="hljs-number">221</span>     <span class="hljs-number">8</span>.<span class="hljs-number">03</span>e-<span class="hljs-number">52</span>        <span class="hljs-number">171</span><br><span class="hljs-attribute">atha</span>|AT2G22890.<span class="hljs-number">1</span>        sind|SIN_1005004        <span class="hljs-number">44</span>.<span class="hljs-number">853</span>  <span class="hljs-number">136</span>     <span class="hljs-number">74</span>      <span class="hljs-number">1</span>       <span class="hljs-number">144</span>     <span class="hljs-number">279</span>     <span class="hljs-number">74</span>      <span class="hljs-number">208</span>     <span class="hljs-number">5</span>.<span class="hljs-number">89</span>e-<span class="hljs-number">32</span>        <span class="hljs-number">119</span><br><span class="hljs-comment"># BLASTP 2.5.0+</span><br><span class="hljs-comment"># Query: atha|AT4G27030.1</span><br><span class="hljs-comment"># Database: all</span><br><span class="hljs-comment"># Fields: query acc., subject acc., % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score</span><br><span class="hljs-comment"># 10 hits found</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        atha|AT4G27030.<span class="hljs-number">1</span>        <span class="hljs-number">100</span>.<span class="hljs-number">000</span> <span class="hljs-number">323</span>     <span class="hljs-number">0</span>       <span class="hljs-number">0</span>       <span class="hljs-number">1</span>       <span class="hljs-number">323</span>     <span class="hljs-number">1</span>       <span class="hljs-number">323</span>     <span class="hljs-number">0</span>.<span class="hljs-number">0</span>     <span class="hljs-number">672</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        atha|AT1G62190.<span class="hljs-number">1</span>        <span class="hljs-number">68</span>.<span class="hljs-number">652</span>  <span class="hljs-number">319</span>     <span class="hljs-number">67</span>      <span class="hljs-number">3</span>       <span class="hljs-number">1</span>       <span class="hljs-number">317</span>     <span class="hljs-number">1</span>       <span class="hljs-number">288</span>     <span class="hljs-number">2</span>.<span class="hljs-number">32</span>e-<span class="hljs-number">159</span>       <span class="hljs-number">448</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        atha|AT2G22890.<span class="hljs-number">1</span>        <span class="hljs-number">68</span>.<span class="hljs-number">269</span>  <span class="hljs-number">312</span>     <span class="hljs-number">65</span>      <span class="hljs-number">3</span>       <span class="hljs-number">1</span>       <span class="hljs-number">311</span>     <span class="hljs-number">1</span>       <span class="hljs-number">279</span>     <span class="hljs-number">1</span>.<span class="hljs-number">13</span>e-<span class="hljs-number">151</span>       <span class="hljs-number">428</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        gmax|KRG98807   <span class="hljs-number">62</span>.<span class="hljs-number">126</span>  <span class="hljs-number">301</span>     <span class="hljs-number">94</span>      <span class="hljs-number">3</span>       <span class="hljs-number">19</span>      <span class="hljs-number">317</span>     <span class="hljs-number">19</span>      <span class="hljs-number">301</span>     <span class="hljs-number">7</span>.<span class="hljs-number">04</span>e-<span class="hljs-number">133</span>       <span class="hljs-number">382</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        gmax|KRH46136   <span class="hljs-number">64</span>.<span class="hljs-number">906</span>  <span class="hljs-number">265</span>     <span class="hljs-number">80</span>      <span class="hljs-number">1</span>       <span class="hljs-number">66</span>      <span class="hljs-number">317</span>     <span class="hljs-number">41</span>      <span class="hljs-number">305</span>     <span class="hljs-number">3</span>.<span class="hljs-number">69</span>e-<span class="hljs-number">130</span>       <span class="hljs-number">375</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1014454        <span class="hljs-number">57</span>.<span class="hljs-number">994</span>  <span class="hljs-number">319</span>     <span class="hljs-number">85</span>      <span class="hljs-number">9</span>       <span class="hljs-number">1</span>       <span class="hljs-number">315</span>     <span class="hljs-number">1</span>       <span class="hljs-number">274</span>     <span class="hljs-number">9</span>.<span class="hljs-number">96</span>e-<span class="hljs-number">118</span>       <span class="hljs-number">342</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1005002        <span class="hljs-number">52</span>.<span class="hljs-number">586</span>  <span class="hljs-number">232</span>     <span class="hljs-number">105</span>     <span class="hljs-number">2</span>       <span class="hljs-number">86</span>      <span class="hljs-number">312</span>     <span class="hljs-number">16</span>      <span class="hljs-number">247</span>     <span class="hljs-number">4</span>.<span class="hljs-number">65</span>e-<span class="hljs-number">84</span>        <span class="hljs-number">255</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1005003        <span class="hljs-number">54</span>.<span class="hljs-number">751</span>  <span class="hljs-number">221</span>     <span class="hljs-number">95</span>      <span class="hljs-number">2</span>       <span class="hljs-number">94</span>      <span class="hljs-number">311</span>     <span class="hljs-number">26</span>      <span class="hljs-number">244</span>     <span class="hljs-number">2</span>.<span class="hljs-number">17</span>e-<span class="hljs-number">78</span>        <span class="hljs-number">241</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1004729        <span class="hljs-number">42</span>.<span class="hljs-number">222</span>  <span class="hljs-number">225</span>     <span class="hljs-number">99</span>      <span class="hljs-number">2</span>       <span class="hljs-number">93</span>      <span class="hljs-number">312</span>     <span class="hljs-number">24</span>      <span class="hljs-number">222</span>     <span class="hljs-number">6</span>.<span class="hljs-number">35</span>e-<span class="hljs-number">57</span>        <span class="hljs-number">185</span><br><span class="hljs-attribute">atha</span>|AT4G27030.<span class="hljs-number">1</span>        sind|SIN_1005004        <span class="hljs-number">53</span>.<span class="hljs-number">788</span>  <span class="hljs-number">132</span>     <span class="hljs-number">60</span>      <span class="hljs-number">1</span>       <span class="hljs-number">180</span>     <span class="hljs-number">311</span>     <span class="hljs-number">78</span>      <span class="hljs-number">208</span>     <span class="hljs-number">5</span>.<span class="hljs-number">63</span>e-<span class="hljs-number">38</span>        <span class="hljs-number">135</span><br><span class="hljs-comment"># BLAST processed 3 queries</span><br><br></code></pre></td></tr></table></figure>
+<h4 id="提取结果">（5）提取结果</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">grep -v  <span class="hljs-string">&quot;#&quot;</span> blast.out &gt;blast2.out <span class="hljs-comment">#去掉#号</span><br><br>awk <span class="hljs-string">&#x27;$3&gt;50 &amp;&amp; $11&lt;1e-30 &#123;print $2&#125;&#x27;</span> blast2.out &gt;blast3.out<br><span class="hljs-comment">#综合上面的代码</span><br>grep -v <span class="hljs-string">&quot;#&quot;</span> blast.out | awk <span class="hljs-string">&#x27;$3&gt;50 &amp;&amp; $11&lt;1e-30&#123;print $2&#125;&#x27;</span> |<span class="hljs-built_in">sort</span>|<span class="hljs-built_in">uniq</span> &gt;protein_ids.txt <span class="hljs-comment"># 第3列是identity，筛选大于50，第11列是e-value，小于30 ，   print $2把id输出来，先进行排序再合并</span><br></code></pre></td></tr></table></figure>
 <ul>
-<li>提取id</li>
+<li>根据蛋白id 提取蛋白序列</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">grep -v  <span class="hljs-string">&quot;#&quot;</span> blast.out &gt;blast2.out <span class="hljs-comment">#去掉#号</span><br><br>awk <span class="hljs-string">&#x27;$3&gt;50 &amp;&amp; $11&lt;1e-30 &#123;print $2&#125;&#x27;</span> blast2.out &gt;blast3.out<br><br>grep -v <span class="hljs-string">&quot;#&quot;</span> blast.out | awk <span class="hljs-string">&#x27;$3&gt;50 &amp;&amp; $11&lt;1e-30&#123;print $2&#125;&#x27;</span> |<span class="hljs-built_in">sort</span>|<span class="hljs-built_in">uniq</span> &gt;protein_ids.txt<br><br><br></code></pre></td></tr></table></figure>
-<ul>
-<li>提取蛋白序列</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">seqtk subseq all.fasta protein_ids.txt<br></code></pre></td></tr></table></figure>
-<p>到filezela把文件下载下来</p>
-<p>然后放到mega里面进行比对</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/fHMhqBWSaK2xjst.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715101803793" />
-<figcaption aria-hidden="true">image-20230715101803793</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/EfLrHTSXC1qngZy.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715101820232" />
-<figcaption aria-hidden="true">image-20230715101820232</figcaption>
-</figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">seqtk subseq all.fasta protein_ids.txt &gt; FAD4-like.fasta<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>seqtk subseq [options]&lt;in.fa&gt; &lt;in.bed&gt;
+&lt;name.list&gt;</p>
+</blockquote>
+<p>到FileZilla把文件下载下来</p>
+<p>然后放到MEGA里面进行比对</p>
+<p><img src="https://s2.loli.net/2023/09/28/fHMhqBWSaK2xjst.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://s2.loli.net/2023/09/28/EfLrHTSXC1qngZy.png" srcset="/img/loading.gif" lazyload /></p>
 <p>多序列比对</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/NK97Hk4gsZ2UaQC.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715101950339" />
-<figcaption aria-hidden="true">image-20230715101950339</figcaption>
-</figure>
+<p><img src="https://s2.loli.net/2023/09/28/NK97Hk4gsZ2UaQC.png" srcset="/img/loading.gif" lazyload /></p>
 <p>选择clust 或者 muscle</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/g2u7WI6hno8mGD3.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715102110614" />
-<figcaption aria-hidden="true">image-20230715102110614</figcaption>
-</figure>
+<p><img src="https://s2.loli.net/2023/09/28/g2u7WI6hno8mGD3.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后做进化树分析</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/4vJ28MsutpGX1n7.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715102203908" />
-<figcaption aria-hidden="true">image-20230715102203908</figcaption>
-</figure>
+<p><img src="https://s2.loli.net/2023/09/28/4vJ28MsutpGX1n7.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这里使用最大似然分析或者NJ法</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/umjBSRCt8aLoc35.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715102350202" />
-<figcaption aria-hidden="true">image-20230715102350202</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/4w5HPxgWzMpRnO9.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715102432317" />
-<figcaption aria-hidden="true">image-20230715102432317</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/Vulka3HewBpZUyc.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715102454577" />
-<figcaption aria-hidden="true">image-20230715102454577</figcaption>
-</figure>
+<p><img src="https://s2.loli.net/2023/09/28/umjBSRCt8aLoc35.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://s2.loli.net/2023/09/28/4w5HPxgWzMpRnO9.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://s2.loli.net/2023/09/28/Vulka3HewBpZUyc.png" srcset="/img/loading.gif" lazyload /></p>
 <p>修改拓扑结构</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/ix3FdLevyP5swGI.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715102611300" />
-<figcaption aria-hidden="true">image-20230715102611300</figcaption>
-</figure>
+<p><img src="https://s2.loli.net/2023/09/28/ix3FdLevyP5swGI.png" srcset="/img/loading.gif" lazyload /></p>
 <p>还可以调整颜色</p>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/TNaJq4QDPcbSR7n.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715102734734" />
-<figcaption aria-hidden="true">image-20230715102734734</figcaption>
-</figure>
-<p>run函数</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sh</span> <span class="hljs-keyword">run</span>.<span class="hljs-keyword">sh</span> 1&gt;<span class="hljs-keyword">run</span>.<span class="hljs-keyword">log</span> 2&gt;&amp;1 #运行成功就进<span class="hljs-keyword">log</span> 运行失败还是重定向到1里<br>nohup <span class="hljs-keyword">sh</span> <span class="hljs-keyword">run</span>.<span class="hljs-keyword">sh</span> 1&gt;<span class="hljs-keyword">run</span>.<span class="hljs-keyword">log</span> 2&gt;&amp;1 &amp;  # 首尾加个nohup 和 &amp;<br>htop #查看后台进程<br>htop -<span class="hljs-keyword">u</span> ubuntu #专门后台<br></code></pre></td></tr></table></figure>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/SjvRBVOJt8gs5eC.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715103536937" />
-<figcaption aria-hidden="true">image-20230715103536937</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2023/09/28/hdxcejuWKlNbL49.png" srcset="/img/loading.gif" lazyload
-alt="image-20230715103642950" />
-<figcaption aria-hidden="true">image-20230715103642950</figcaption>
-</figure>
-<p>1和2代表俩个线程</p>
-<p>Mem代表了1.94G的内存</p>
+<p><img src="https://s2.loli.net/2023/09/28/TNaJq4QDPcbSR7n.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="结果">03 结果</h3>
+<p>进化树显示芝麻FAD4-like基因有4个拷贝。拷贝数是否与油脂含量高相关，需进一步验证。</p>
 
                 
               </div>
@@ -428,8 +395,8 @@ alt="image-20230715103642950" />
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>进行简单的基因家族分析</div>
-      <div>http://example.com/2023/07/12/运行分析/</div>
+      <div>简单blast比对：FAD4-like基因在大豆、拟南芥和芝麻中的比对</div>
+      <div>http://example.com/2023/02/23/进行简单的基因家族分析/</div>
     </div>
     <div class="license-meta">
       
@@ -441,7 +408,7 @@ alt="image-20230715103642950" />
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月12日</div>
+          <div>2023年2月23日</div>
         </div>
       
       
@@ -485,9 +452,9 @@ alt="image-20230715103642950" />
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/12/Node%20JS%20%E5%AE%89%E8%A3%85/" title="安装Node JS">
+                      <a href="/2023/03/28/%E5%AE%89%E8%A3%85linux%EF%BC%88Debian%EF%BC%89%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="安装linux（Debian）服务器">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">安装Node JS</span>
+                        <span class="hidden-mobile">安装linux（Debian）服务器</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -495,8 +462,8 @@ alt="image-20230715103642950" />
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/11/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96/" title="服务器的初始化">
-                        <span class="hidden-mobile">服务器的初始化</span>
+                      <a href="/2022/12/22/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" title="线性模型">
+                        <span class="hidden-mobile">线性模型</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
